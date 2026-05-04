@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swaga Labs — Стиль. Код. Леопард.</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Pixel Cursor Trail -->
+    <canvas id="pixel-cursor"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-pixel"></span>
+            <span class="logo-text">SWAGA</span>
+            <span class="logo-labs">LABS</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#vibe">Вайб</a></li>
+            <li><a href="#contact">Контакт</a></li>
+        </ul>
+        <button class="btn-main">ЗАКАЗАТЬ 🔥</button>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="pixel-badge">
+                <span class="pixel-text"> EST. 2026</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">МЫ ДЕЛАЕМ</span>
+                <span class="title-line highlight">DIGITAL SWAG</span>
+                <span class="title-line">БЕЗ КОМПРОМИССОВ</span>
+            </h1>
+            <p class="hero-subtitle">
+                Леопардовый принт в коде. Пиксельная точность в дизайне.
+                <br>Твоя идея + наш стиль = 🔥🔥
+            </p>
+            <div class="hero-buttons">
+                <button class="btn-main large">НАЧАТЬ ПРОЕКТ 💎</button>
+                <button class="btn-outline large">СМОТРЕТЬ РАБОТЫ 👀</button>
+            </div>
+        </div>
+
+        <!-- Shakespeare Meme Element -->
+        <div class="hero-meme">
+            <div class="meme-frame">
+                <div class="meme-shakespeare">
+                    <div class="shakespeare-face"></div>
+                    <div class="shakespeare-glasses"></div>
+                    <div class="shakespeare-body"></div>
+                </div>
+            </div>
+            <div class="meme-label">CEO SWAGA LABS</div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="float-element float-1">🐆</div>
+        <div class="float-element float-2"></div>
+        <div class="float-element float-3">💎</div>
+        <div class="float-element float-4">🔥</div>
+        <div class="float-element float-5"></div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>SWAGA LABS ★ WEB DESIGN ★ DEVELOPMENT ★ BRANDING ★ MOBILE APPS ★ UI/UX ★ CREATIVE ★ SWAGA LABS ★ WEB DESIGN ★ DEVELOPMENT ★ BRANDING ★ MOBILE APPS ★ UI/UX ★ CREATIVE ★ </span>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="section-title">
+            <span class="pixel-label">▸ ЧТО МЫ ДЕЛАЕМ</span>
+            <h2>НАШИ <span class="text-leopard">УСЛУГИ</span></h2>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card" data-delay="0">
+                <div class="card-leopard-border"></div>
+                <div class="card-icon">🎨</div>
+                <h3>WEB ДИЗАЙН</h3>
+                <p>Дизайн, от которого конкуренты плачут в подушку. Каждый пиксель на своём месте.</p>
+                <a href="#" class="card-link">ПОДРОБНЕЕ →</a>
+            </div>
+
+            <div class="service-card" data-delay="100">
+                <div class="card-leopard-border"></div>
+                <div class="card-icon">💻</div>
+                <h3>РАЗРАБОТКА</h3>
+                <p>Чистый код, бешеная скорость. Мы строим не сайты — мы строим империи.</p>
+                <a href="#" class="card-link">ПОДРОБНЕЕ →</a>
+            </div>
+
+            <div class="service-card" data-delay="200">
+                <div class="card-leopard-border"></div>
+                <div class="card-icon">📱</div>
+                <h3>МОБИЛЬНЫЕ ПРИЛОЖЕНИЯ</h3>
+                <p>iOS и Android приложения, которые пользователи не удалят даже случайно.</p>
+                <a href="#" class="card-link">ПОДРОБНЕЕ →</a>
+            </div>
+
+            <div class="service-card" data-delay="300">
+                <div class="card-leopard-border"></div>
+                <div class="card-icon">🎭</div>
+                <h3>БРЕНДИНГ</h3>
+                <p>Бренд настолько огненный, что нужен огнетушитель. Полная айдентика с нуля.</p>
+                <a href="#" class="card-link">ПОДРОБНЕЕ →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number" data-target="500">0</div>
+                <div class="stat-label">ПРОЕКТОВ</div>
+                <div class="stat-bar"><div class="stat-fill" style="width: 95%"></div></div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="98">0</div>
+                <div class="stat-label">% КЛИЕНТОВ ДОВОЛЬНЫ</div>
+                <div class="stat-bar"><div class="stat-fill" style="width: 98%"></div></div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="50">0</div>
+                <div class="stat-label">В КОМАНДЕ</div>
+                <div class="stat-bar"><div class="stat-fill" style="width: 70%"></div></div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="24">0</div>
+                <div class="stat-label">НАГРАД</div>
+                <div class="stat-bar"><div class="stat-fill" style="width: 60%"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vibe Section -->
+    <section id="vibe" class="vibe-section">
+        <div class="vibe-content">
+            <span class="pixel-label">▸ НАШ ВАЙБ</span>
+            <h2>НЕ ПРОСТО КОД — <br><span class="text-leopard">ОБРАЗ ЖИЗНИ</span></h2>
+            <p class="vibe-text">
+                Мы не пишем код. Мы создаём цифровой флекс.
+                Каждый проект — это произведение искусства,
+                завернутое в леопард и поданное с пиксельной точностью.
+            </p>
+            <div class="vibe-tags">
+                <span class="vibe-tag">🐆 LEOPARD ENERGY</span>
+                <span class="vibe-tag">👾 PIXEL PERFECT</span>
+                <span class="vibe-tag">⚡ LIGHTNING FAST</span>
+                <span class="vibe-tag"> PREMIUM QUALITY</span>
+                <span class="vibe-tag">🔥 NO CAP</span>
+                <span class="vibe-tag">😎 100% SWAGA</span>
+            </div>
+        </div>
+        <div class="vibe-visual">
+            <div class="leopard-circle">
+                <div class="leopard-pattern"></div>
+            </div>
+            <div class="vibe-emoji"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-title">
+            <span class="pixel-label">▸ ОТЗЫВЫ</span>
+            <h2>ЧТО ГОВОРЯТ <span class="text-leopard">КЛИЕНТЫ</span></h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p>"Swaga Labs перевернули мой бизнес. Мой сайт теперь выглядит дороже, чем мой автомобиль."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">🧔</div>
+                    <div>
+                        <strong>Алексей К.</strong>
+                        <span>CEO, TechCorp</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p>"Ребята, это не просто разработка. Это искусство. Мой интернет-магазин стал выглядеть как Gucci."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">👩</div>
+                    <div>
+                        <strong>Мария С.</strong>
+                        <span>Founder, FashionHub</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p>"Заказал лендинг — получил шедевр. Конверсия выросла на 300%. Леопард работает!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">🧑💼</div>
+                    <div>
+                        <strong>Дмитрий В.</strong>
+                        <span>CMO, StartupXYZ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+        <div class="cta-leopard-bg"></div>
+        <div class="cta-content">
+            <span class="pixel-label">▸ ГОТОВ К ВАЙБУ?</span>
+            <h2>ДАВАЙ СОЗДАДИМ <br><span class="text-leopard">ЧТО-ТО ЛЕГЕНДАРНОЕ</span></h2>
+            <p>Твоя идея + наша команда = 💥 БУМ 💥</p>
+            <div class="cta-buttons">
+                <button class="btn-main large">НАПИСАТЬ НАМ 💬</button>
+                <button class="btn-outline large">ЗАБРОНИРОВАТЬ ЗВОНОК 📞</button>
+            </div>
+            <div class="cta-contacts">
+                <span>📧 hello@swagalabs.com</span>
+                <span>📱 +7 (999) 123-45-67</span>
+                <span>📍 Москва, Россия</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-pixel"></span>
+                    <span class="logo-text">SWAGA</span>
+                    <span class="logo-labs">LABS</span>
+                </div>
+                <p>Стиль. Код. Леопард.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">🐦</a>
+                    <a href="#" class="social-link">📸</a>
+                    <a href="#" class="social-link"></a>
+                    <a href="#" class="social-link">🎵</a>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <h4>КОМПАНИЯ</h4>
+                    <a href="#">О нас</a>
+                    <a href="#">Карьера</a>
+                    <a href="#">Блог</a>
+                </div>
+                <div class="footer-col">
+                    <h4>УСЛУГИ</h4>
+                    <a href="#">Веб-дизайн</a>
+                    <a href="#">Разработка</a>
+                    <a href="#">Брендинг</a>
+                </div>
+                <div class="footer-col">
+                    <h4>КОНТАКТЫ</h4>
+                    <a href="#">hello@swagalabs.com</a>
+                    <a href="#">+7 (999) 123-45-67</a>
+                    <a href="#">Telegram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Swaga Labs. Все права защищены. Сделано с 🐆 и кофеином.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
