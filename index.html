@@ -37,7 +37,7 @@
                 <button data-lang="ua">🇺🇦 UA</button>
             </div>
         </div>
-        <button class="btn-main" data-i18n="btn_order">ЗАКАЗАТЬ 🔥</button>
+        <button class="btn-main" data-i18n="btn_order" data-action="telegram-manager">ЗАКАЗАТЬ 🔥</button>
         <div class="hamburger" id="hamburger">
             <span></span>
             <span></span>
@@ -62,8 +62,8 @@
                 <br><span data-i18n="hero_subtitle_2">Твоя идея + наш стиль = 🔥🔥</span>
             </p>
             <div class="hero-buttons">
-                <button class="btn-main large" data-i18n="hero_btn_1">НАЧАТЬ ПРОЕКТ 💎</button>
-                <button class="btn-outline large" data-i18n="hero_btn_2">СМОТРЕТЬ РАБОТЫ 👀</button>
+                <button class="btn-main large" data-i18n="hero_btn_1" data-action="scroll-contact">НАЧАТЬ ПРОЕКТ 💎</button>
+                <button class="btn-outline large" data-i18n="hero_btn_2" data-action="scroll-services">СМОТРЕТЬ РАБОТЫ 👀</button>
             </div>
         </div>
 
@@ -107,7 +107,7 @@
                 <div class="card-icon">🎨</div>
                 <h3 data-i18n="service_1_title">WEB ДИЗАЙН</h3>
                 <p data-i18n="service_1_desc">Дизайн, от которого конкуренты плачут в подушку. Каждый пиксель на своём месте.</p>
-                <a href="#" class="card-link" data-i18n="card_link">ПОДРОБНЕЕ →</a>
+                <a href="#services" class="card-link" data-action="scroll-services" data-i18n="card_link">ПОДРОБНЕЕ →</a>
             </div>
 
             <div class="service-card" data-delay="100">
@@ -115,7 +115,7 @@
                 <div class="card-icon">💻</div>
                 <h3 data-i18n="service_2_title">РАЗРАБОТКА</h3>
                 <p data-i18n="service_2_desc">Чистый код, бешеная скорость. Мы строим не сайты — мы строим империи.</p>
-                <a href="#" class="card-link" data-i18n="card_link">ПОДРОБНЕЕ →</a>
+                <a href="#services" class="card-link" data-action="scroll-services" data-i18n="card_link">ПОДРОБНЕЕ →</a>
             </div>
 
             <div class="service-card" data-delay="200">
@@ -123,7 +123,7 @@
                 <div class="card-icon">📱</div>
                 <h3 data-i18n="service_3_title">МОБИЛЬНЫЕ ПРИЛОЖЕНИЯ</h3>
                 <p data-i18n="service_3_desc">iOS и Android приложения, которые пользователи не удалят даже случайно.</p>
-                <a href="#" class="card-link" data-i18n="card_link">ПОДРОБНЕЕ →</a>
+                <a href="#services" class="card-link" data-action="scroll-services" data-i18n="card_link">ПОДРОБНЕЕ →</a>
             </div>
 
             <div class="service-card" data-delay="300">
@@ -131,7 +131,7 @@
                 <div class="card-icon">🎭</div>
                 <h3 data-i18n="service_4_title">БРЕНДИНГ</h3>
                 <p data-i18n="service_4_desc">Бренд настолько огненный, что нужен огнетушитель. Полная айдентика с нуля.</p>
-                <a href="#" class="card-link" data-i18n="card_link">ПОДРОБНЕЕ →</a>
+                <a href="#services" class="card-link" data-action="scroll-services" data-i18n="card_link">ПОДРОБНЕЕ →</a>
             </div>
         </div>
     </section>
@@ -240,8 +240,8 @@
             <h2><span data-i18n="cta_title_1">ДАВАЙ СОЗДАДИМ</span> <br><span class="text-leopard" data-i18n="cta_title_2">ЧТО-ТО ЛЕГЕНДАРНОЕ</span></h2>
             <p data-i18n="cta_subtitle">Твоя идея + наша команда = 💥 БУМ 💥</p>
             <div class="cta-buttons">
-                <button class="btn-main large" data-i18n="cta_btn_1">НАПИСАТЬ НАМ 💬</button>
-                <button class="btn-outline large" data-i18n="cta_btn_2">ЗАБРОНИРОВАТЬ ЗВОНОК 📞</button>
+                <button class="btn-main large" data-i18n="cta_btn_1" data-action="telegram-manager">НАПИСАТЬ НАМ 💬</button>
+                <button class="btn-outline large" data-i18n="cta_btn_2" data-action="book-call">ЗАБРОНИРОВАТЬ ЗВОНОК 📞</button>
             </div>
             <div class="cta-contacts">
                 <span>📧 hello@swagalabs.com</span>
@@ -271,21 +271,21 @@
             <div class="footer-nav">
                 <div class="footer-col">
                     <h4 data-i18n="footer_company">КОМПАНИЯ</h4>
-                    <a href="#" data-i18n="footer_about">О нас</a>
-                    <a href="#" data-i18n="footer_careers">Карьера</a>
-                    <a href="#" data-i18n="footer_blog">Блог</a>
+                    <a href="#home" data-i18n="footer_about">О нас</a>
+                    <a href="#contact" data-i18n="footer_careers">Карьера</a>
+                    <a href="#vibe" data-i18n="footer_blog">Блог</a>
                 </div>
                 <div class="footer-col">
                     <h4 data-i18n="footer_services">УСЛУГИ</h4>
-                    <a href="#" data-i18n="footer_web_design">Веб-дизайн</a>
-                    <a href="#" data-i18n="footer_development">Разработка</a>
-                    <a href="#" data-i18n="footer_branding">Брендинг</a>
+                    <a href="#services" data-i18n="footer_web_design">Веб-дизайн</a>
+                    <a href="#services" data-i18n="footer_development">Разработка</a>
+                    <a href="#services" data-i18n="footer_branding">Брендинг</a>
                 </div>
                 <div class="footer-col">
                     <h4 data-i18n="footer_contacts">КОНТАКТЫ</h4>
-                    <a href="#">hello@swagalabs.com</a>
-                    <a href="#">+7 (999) 123-45-67</a>
-                    <a href="#" data-i18n="footer_telegram">Telegram</a>
+                    <a href="mailto:hello@swagalabs.com">hello@swagalabs.com</a>
+                    <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+                    <a href="#" data-action="telegram-channel" data-i18n="footer_telegram">Telegram</a>
                 </div>
             </div>
         </div>
