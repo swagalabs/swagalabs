@@ -20,12 +20,24 @@
             <span class="logo-labs">LABS</span>
         </div>
         <ul class="nav-links">
-            <li><a href="#home">Главная</a></li>
-            <li><a href="#services">Услуги</a></li>
-            <li><a href="#vibe">Вайб</a></li>
-            <li><a href="#contact">Контакт</a></li>
+            <li><a href="#home" data-i18n="nav_home">Главная</a></li>
+            <li><a href="#services" data-i18n="nav_services">Услуги</a></li>
+            <li><a href="#vibe" data-i18n="nav_vibe">Вайб</a></li>
+            <li><a href="#contact" data-i18n="nav_contact">Контакт</a></li>
         </ul>
-        <button class="btn-main">ЗАКАЗАТЬ 🔥</button>
+        <div class="lang-switcher">
+            <button class="lang-btn" id="langToggle">
+                <span class="lang-icon">🌐</span>
+                <span class="lang-current">RU</span>
+            </button>
+            <div class="lang-dropdown" id="langDropdown">
+                <button data-lang="ru">🇷🇺 RU</button>
+                <button data-lang="en">🇬🇧 EN</button>
+                <button data-lang="lt">🇱🇹 LT</button>
+                <button data-lang="ua">🇺🇦 UA</button>
+            </div>
+        </div>
+        <button class="btn-main" data-i18n="btn_order">ЗАКАЗАТЬ 🔥</button>
         <div class="hamburger" id="hamburger">
             <span></span>
             <span></span>
@@ -41,17 +53,17 @@
                 <span class="pixel-text"> EST. 2026</span>
             </div>
             <h1 class="hero-title">
-                <span class="title-line">МЫ ДЕЛАЕМ</span>
-                <span class="title-line highlight">DIGITAL SWAG</span>
-                <span class="title-line">БЕЗ КОМПРОМИССОВ</span>
+                <span class="title-line" data-i18n="hero_title_1">МЫ ДЕЛАЕМ</span>
+                <span class="title-line highlight" data-i18n="hero_title_2">DIGITAL SWAG</span>
+                <span class="title-line" data-i18n="hero_title_3">БЕЗ КОМПРОМИССОВ</span>
             </h1>
             <p class="hero-subtitle">
-                Леопардовый принт в коде. Пиксельная точность в дизайне.
-                <br>Твоя идея + наш стиль = 🔥🔥
+                <span data-i18n="hero_subtitle_1">Леопардовый принт в коде. Пиксельная точность в дизайне.</span>
+                <br><span data-i18n="hero_subtitle_2">Твоя идея + наш стиль = 🔥🔥</span>
             </p>
             <div class="hero-buttons">
-                <button class="btn-main large">НАЧАТЬ ПРОЕКТ 💎</button>
-                <button class="btn-outline large">СМОТРЕТЬ РАБОТЫ 👀</button>
+                <button class="btn-main large" data-i18n="hero_btn_1">НАЧАТЬ ПРОЕКТ 💎</button>
+                <button class="btn-outline large" data-i18n="hero_btn_2">СМОТРЕТЬ РАБОТЫ 👀</button>
             </div>
         </div>
 
@@ -85,41 +97,41 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="section-title">
-            <span class="pixel-label">▸ ЧТО МЫ ДЕЛАЕМ</span>
-            <h2>НАШИ <span class="text-leopard">УСЛУГИ</span></h2>
+            <span class="pixel-label" data-i18n="services_label">▸ ЧТО МЫ ДЕЛАЕМ</span>
+            <h2><span data-i18n="services_title_1">НАШИ</span> <span class="text-leopard" data-i18n="services_title_2">УСЛУГИ</span></h2>
         </div>
 
         <div class="services-grid">
             <div class="service-card" data-delay="0">
                 <div class="card-leopard-border"></div>
                 <div class="card-icon">🎨</div>
-                <h3>WEB ДИЗАЙН</h3>
-                <p>Дизайн, от которого конкуренты плачут в подушку. Каждый пиксель на своём месте.</p>
-                <a href="#" class="card-link">ПОДРОБНЕЕ →</a>
+                <h3 data-i18n="service_1_title">WEB ДИЗАЙН</h3>
+                <p data-i18n="service_1_desc">Дизайн, от которого конкуренты плачут в подушку. Каждый пиксель на своём месте.</p>
+                <a href="#" class="card-link" data-i18n="card_link">ПОДРОБНЕЕ →</a>
             </div>
 
             <div class="service-card" data-delay="100">
                 <div class="card-leopard-border"></div>
                 <div class="card-icon">💻</div>
-                <h3>РАЗРАБОТКА</h3>
-                <p>Чистый код, бешеная скорость. Мы строим не сайты — мы строим империи.</p>
-                <a href="#" class="card-link">ПОДРОБНЕЕ →</a>
+                <h3 data-i18n="service_2_title">РАЗРАБОТКА</h3>
+                <p data-i18n="service_2_desc">Чистый код, бешеная скорость. Мы строим не сайты — мы строим империи.</p>
+                <a href="#" class="card-link" data-i18n="card_link">ПОДРОБНЕЕ →</a>
             </div>
 
             <div class="service-card" data-delay="200">
                 <div class="card-leopard-border"></div>
                 <div class="card-icon">📱</div>
-                <h3>МОБИЛЬНЫЕ ПРИЛОЖЕНИЯ</h3>
-                <p>iOS и Android приложения, которые пользователи не удалят даже случайно.</p>
-                <a href="#" class="card-link">ПОДРОБНЕЕ →</a>
+                <h3 data-i18n="service_3_title">МОБИЛЬНЫЕ ПРИЛОЖЕНИЯ</h3>
+                <p data-i18n="service_3_desc">iOS и Android приложения, которые пользователи не удалят даже случайно.</p>
+                <a href="#" class="card-link" data-i18n="card_link">ПОДРОБНЕЕ →</a>
             </div>
 
             <div class="service-card" data-delay="300">
                 <div class="card-leopard-border"></div>
                 <div class="card-icon">🎭</div>
-                <h3>БРЕНДИНГ</h3>
-                <p>Бренд настолько огненный, что нужен огнетушитель. Полная айдентика с нуля.</p>
-                <a href="#" class="card-link">ПОДРОБНЕЕ →</a>
+                <h3 data-i18n="service_4_title">БРЕНДИНГ</h3>
+                <p data-i18n="service_4_desc">Бренд настолько огненный, что нужен огнетушитель. Полная айдентика с нуля.</p>
+                <a href="#" class="card-link" data-i18n="card_link">ПОДРОБНЕЕ →</a>
             </div>
         </div>
     </section>
@@ -129,22 +141,22 @@
         <div class="stats-grid">
             <div class="stat-item">
                 <div class="stat-number" data-target="500">0</div>
-                <div class="stat-label">ПРОЕКТОВ</div>
+                <div class="stat-label" data-i18n="stat_1_label">ПРОЕКТОВ</div>
                 <div class="stat-bar"><div class="stat-fill" style="width: 95%"></div></div>
             </div>
             <div class="stat-item">
                 <div class="stat-number" data-target="98">0</div>
-                <div class="stat-label">% КЛИЕНТОВ ДОВОЛЬНЫ</div>
+                <div class="stat-label" data-i18n="stat_2_label">% КЛИЕНТОВ ДОВОЛЬНЫ</div>
                 <div class="stat-bar"><div class="stat-fill" style="width: 98%"></div></div>
             </div>
             <div class="stat-item">
                 <div class="stat-number" data-target="50">0</div>
-                <div class="stat-label">В КОМАНДЕ</div>
+                <div class="stat-label" data-i18n="stat_3_label">В КОМАНДЕ</div>
                 <div class="stat-bar"><div class="stat-fill" style="width: 70%"></div></div>
             </div>
             <div class="stat-item">
                 <div class="stat-number" data-target="24">0</div>
-                <div class="stat-label">НАГРАД</div>
+                <div class="stat-label" data-i18n="stat_4_label">НАГРАД</div>
                 <div class="stat-bar"><div class="stat-fill" style="width: 60%"></div></div>
             </div>
         </div>
@@ -153,20 +165,20 @@
     <!-- Vibe Section -->
     <section id="vibe" class="vibe-section">
         <div class="vibe-content">
-            <span class="pixel-label">▸ НАШ ВАЙБ</span>
-            <h2>НЕ ПРОСТО КОД — <br><span class="text-leopard">ОБРАЗ ЖИЗНИ</span></h2>
-            <p class="vibe-text">
+            <span class="pixel-label" data-i18n="vibe_label">▸ НАШ ВАЙБ</span>
+            <h2><span data-i18n="vibe_title_1">НЕ ПРОСТО КОД —</span> <br><span class="text-leopard" data-i18n="vibe_title_2">ОБРАЗ ЖИЗНИ</span></h2>
+            <p class="vibe-text" data-i18n="vibe_text">
                 Мы не пишем код. Мы создаём цифровой флекс.
                 Каждый проект — это произведение искусства,
                 завернутое в леопард и поданное с пиксельной точностью.
             </p>
             <div class="vibe-tags">
-                <span class="vibe-tag">🐆 LEOPARD ENERGY</span>
-                <span class="vibe-tag">👾 PIXEL PERFECT</span>
-                <span class="vibe-tag">⚡ LIGHTNING FAST</span>
-                <span class="vibe-tag"> PREMIUM QUALITY</span>
-                <span class="vibe-tag">🔥 NO CAP</span>
-                <span class="vibe-tag">😎 100% SWAGA</span>
+                <span class="vibe-tag" data-i18n="vibe_tag_1">🐆 LEOPARD ENERGY</span>
+                <span class="vibe-tag" data-i18n="vibe_tag_2">👾 PIXEL PERFECT</span>
+                <span class="vibe-tag" data-i18n="vibe_tag_3">⚡ LIGHTNING FAST</span>
+                <span class="vibe-tag" data-i18n="vibe_tag_4"> PREMIUM QUALITY</span>
+                <span class="vibe-tag" data-i18n="vibe_tag_5">🔥 NO CAP</span>
+                <span class="vibe-tag" data-i18n="vibe_tag_6">😎 100% SWAGA</span>
             </div>
         </div>
         <div class="vibe-visual">
@@ -180,40 +192,40 @@
     <!-- Testimonials -->
     <section class="testimonials">
         <div class="section-title">
-            <span class="pixel-label">▸ ОТЗЫВЫ</span>
-            <h2>ЧТО ГОВОРЯТ <span class="text-leopard">КЛИЕНТЫ</span></h2>
+            <span class="pixel-label" data-i18n="testimonials_label">▸ ОТЗЫВЫ</span>
+            <h2><span data-i18n="testimonials_title_1">ЧТО ГОВОРЯТ</span> <span class="text-leopard" data-i18n="testimonials_title_2">КЛИЕНТЫ</span></h2>
         </div>
         <div class="testimonials-grid">
             <div class="testimonial-card">
                 <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                <p>"Swaga Labs перевернули мой бизнес. Мой сайт теперь выглядит дороже, чем мой автомобиль."</p>
+                <p data-i18n="testimonial_1">"Swaga Labs перевернули мой бизнес. Мой сайт теперь выглядит дороже, чем мой автомобиль."</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">🧔</div>
                     <div>
                         <strong>Алексей К.</strong>
-                        <span>CEO, TechCorp</span>
+                        <span data-i18n="testimonial_1_role">CEO, TechCorp</span>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                <p>"Ребята, это не просто разработка. Это искусство. Мой интернет-магазин стал выглядеть как Gucci."</p>
+                <p data-i18n="testimonial_2">"Ребята, это не просто разработка. Это искусство. Мой интернет-магазин стал выглядеть как Gucci."</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">👩</div>
                     <div>
                         <strong>Мария С.</strong>
-                        <span>Founder, FashionHub</span>
+                        <span data-i18n="testimonial_2_role">Founder, FashionHub</span>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                <p>"Заказал лендинг — получил шедевр. Конверсия выросла на 300%. Леопард работает!"</p>
+                <p data-i18n="testimonial_3">"Заказал лендинг — получил шедевр. Конверсия выросла на 300%. Леопард работает!"</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">🧑💼</div>
                     <div>
                         <strong>Дмитрий В.</strong>
-                        <span>CMO, StartupXYZ</span>
+                        <span data-i18n="testimonial_3_role">CMO, StartupXYZ</span>
                     </div>
                 </div>
             </div>
@@ -224,17 +236,17 @@
     <section id="contact" class="cta-section">
         <div class="cta-leopard-bg"></div>
         <div class="cta-content">
-            <span class="pixel-label">▸ ГОТОВ К ВАЙБУ?</span>
-            <h2>ДАВАЙ СОЗДАДИМ <br><span class="text-leopard">ЧТО-ТО ЛЕГЕНДАРНОЕ</span></h2>
-            <p>Твоя идея + наша команда = 💥 БУМ 💥</p>
+            <span class="pixel-label" data-i18n="cta_label">▸ ГОТОВ К ВАЙБУ?</span>
+            <h2><span data-i18n="cta_title_1">ДАВАЙ СОЗДАДИМ</span> <br><span class="text-leopard" data-i18n="cta_title_2">ЧТО-ТО ЛЕГЕНДАРНОЕ</span></h2>
+            <p data-i18n="cta_subtitle">Твоя идея + наша команда = 💥 БУМ 💥</p>
             <div class="cta-buttons">
-                <button class="btn-main large">НАПИСАТЬ НАМ 💬</button>
-                <button class="btn-outline large">ЗАБРОНИРОВАТЬ ЗВОНОК 📞</button>
+                <button class="btn-main large" data-i18n="cta_btn_1">НАПИСАТЬ НАМ 💬</button>
+                <button class="btn-outline large" data-i18n="cta_btn_2">ЗАБРОНИРОВАТЬ ЗВОНОК 📞</button>
             </div>
             <div class="cta-contacts">
                 <span>📧 hello@swagalabs.com</span>
                 <span>📱 +7 (999) 123-45-67</span>
-                <span>📍 Москва, Россия</span>
+                <span data-i18n="cta_location">📍 Москва, Россия</span>
             </div>
         </div>
     </section>
@@ -248,7 +260,7 @@
                     <span class="logo-text">SWAGA</span>
                     <span class="logo-labs">LABS</span>
                 </div>
-                <p>Стиль. Код. Леопард.</p>
+                <p data-i18n="footer_tagline">Стиль. Код. Леопард.</p>
                 <div class="social-links">
                     <a href="#" class="social-link">🐦</a>
                     <a href="#" class="social-link">📸</a>
@@ -258,27 +270,27 @@
             </div>
             <div class="footer-nav">
                 <div class="footer-col">
-                    <h4>КОМПАНИЯ</h4>
-                    <a href="#">О нас</a>
-                    <a href="#">Карьера</a>
-                    <a href="#">Блог</a>
+                    <h4 data-i18n="footer_company">КОМПАНИЯ</h4>
+                    <a href="#" data-i18n="footer_about">О нас</a>
+                    <a href="#" data-i18n="footer_careers">Карьера</a>
+                    <a href="#" data-i18n="footer_blog">Блог</a>
                 </div>
                 <div class="footer-col">
-                    <h4>УСЛУГИ</h4>
-                    <a href="#">Веб-дизайн</a>
-                    <a href="#">Разработка</a>
-                    <a href="#">Брендинг</a>
+                    <h4 data-i18n="footer_services">УСЛУГИ</h4>
+                    <a href="#" data-i18n="footer_web_design">Веб-дизайн</a>
+                    <a href="#" data-i18n="footer_development">Разработка</a>
+                    <a href="#" data-i18n="footer_branding">Брендинг</a>
                 </div>
                 <div class="footer-col">
-                    <h4>КОНТАКТЫ</h4>
+                    <h4 data-i18n="footer_contacts">КОНТАКТЫ</h4>
                     <a href="#">hello@swagalabs.com</a>
                     <a href="#">+7 (999) 123-45-67</a>
-                    <a href="#">Telegram</a>
+                    <a href="#" data-i18n="footer_telegram">Telegram</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 Swaga Labs. Все права защищены. Сделано с 🐆 и кофеином.</p>
+            <p data-i18n="footer_copyright">© 2026 Swaga Labs. Все права защищены. Сделано с 🐆 и кофеином.</p>
         </div>
     </footer>
 
