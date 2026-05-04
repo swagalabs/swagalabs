@@ -2,6 +2,15 @@
    SWAGA LABS — JAVASCRIPT
    ============================================ */
 
+// --- Конфигурация ссылок и контактов ---
+const CONFIG = {
+    telegramManager: 'https://t.me/swagalabs',
+    telegramChannel: 'https://t.me/swagalabss',
+    email: 'hello@swagalabs.com',
+    phone: '+7 (999) 123-45-67',
+    location: 'Москва, Россия'
+};
+
 // --- Translations Data ---
 const translations = {
     ru: {
@@ -348,9 +357,60 @@ function updatePageLanguage(lang) {
 
 // Initialize language switcher on DOM load
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLanguageSwitcher);
+    document.addEventListener('DOMContentLoaded', function() {
+        initLanguageSwitcher();
+        initButtons();
+    });
 } else {
     initLanguageSwitcher();
+    initButtons();
+}
+
+// --- Инициализация кнопок ---
+function initButtons() {
+    // Кнопки "ЗАКАЗАТЬ" и "НАПИСАТЬ НАМ" - ведут к менеджеру
+    document.querySelectorAll('[data-action="telegram-manager"]').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open(CONFIG.telegramManager, '_blank');
+        });
+    });
+    
+    // Кнопка "СМОТРЕТЬ РАБОТЫ" - скролл к портфолио/услугам
+    document.querySelectorAll('[data-action="scroll-services"]').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('services').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
+    });
+    
+    // Кнопка "НАЧАТЬ ПРОЕКТ" - скролл к контактам
+    document.querySelectorAll('[data-action="scroll-contact"]').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('contact').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
+    });
+    
+    // Кнопка "ЗАБРОНИРОВАТЬ ЗВОНОК" - ведет к менеджеру
+    document.querySelectorAll('[data-action="book-call"]').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open(CONFIG.telegramManager, '_blank');
+        });
+    });
+    
+    // Ссылка на Telegram канал в футере
+    document.querySelectorAll('[data-action="telegram-channel"]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open(CONFIG.telegramChannel, '_blank');
+        });
+    });
 }
 
 // --- Mobile Navigation ---
