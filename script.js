@@ -330,7 +330,6 @@
         var pCtx = particleCanvas.getContext('2d');
         var particles = [];
         var particleCount = 80;
-        var connections = [];
 
         function resizeParticleCanvas() {
             particleCanvas.width = window.innerWidth;

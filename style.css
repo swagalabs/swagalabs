@@ -1043,10 +1043,6 @@ input {
     box-shadow: 0 0 10px color-mix(in srgb, var(--bar-color) 30%, transparent);
 }
 
-.tech-bar-fill.animated {
-    width: calc(var(--target-width) * 1%);
-}
-
 .tech-bar-value {
     font-family: var(--font-mono);
     font-size: 0.8rem;
@@ -1426,13 +1422,13 @@ input {
     width: 100%;
     height: 2px;
     background: linear-gradient(90deg, var(--accent), transparent);
-    transform: scaleX(var(--heat, 0));
+    transform: scaleX(0);
     transform-origin: left;
     transition: transform 1.2s var(--ease-out);
 }
 
 .radar-item.animated .radar-item-heat {
-    transform: scaleX(1);
+    transform: scaleX(var(--heat));
 }
 
 .radar-item-name {
