@@ -3,287 +3,738 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swaga Labs — Стиль. Код. Леопард.</title>
+    <title>SwagaLabs — Trends. Code. Culture.</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Pixel Cursor Trail -->
-    <canvas id="pixel-cursor"></canvas>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">
-            <span class="logo-pixel"></span>
-            <span class="logo-text">SWAGA</span>
-            <span class="logo-labs">LABS</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#home" data-i18n="nav_home">Главная</a></li>
-            <li><a href="#services" data-i18n="nav_services">Услуги</a></li>
-            <li><a href="#vibe" data-i18n="nav_vibe">Вайб</a></li>
-            <li><a href="#contact" data-i18n="nav_contact">Контакт</a></li>
-        </ul>
-        <div class="lang-switcher">
-            <button class="lang-btn" id="langToggle">
-                <span class="lang-icon">🌐</span>
-                <span class="lang-current">RU</span>
-            </button>
-            <div class="lang-dropdown" id="langDropdown">
-                <button data-lang="ru">🇷🇺 RU</button>
-                <button data-lang="en">🇬🇧 EN</button>
-                <button data-lang="lt">🇱🇹 LT</button>
-                <button data-lang="ua">🇺🇦 UA</button>
-            </div>
-        </div>
-        <button class="btn-main" data-i18n="btn_order" data-action="telegram-manager">ЗАКАЗАТЬ 🔥</button>
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="pixel-badge">
-                <span class="pixel-text"> EST. 2026</span>
-            </div>
-            <h1 class="hero-title">
-                <span class="title-line" data-i18n="hero_title_1">МЫ ДЕЛАЕМ</span>
-                <span class="title-line highlight" data-i18n="hero_title_2">DIGITAL SWAG</span>
-                <span class="title-line" data-i18n="hero_title_3">БЕЗ КОМПРОМИССОВ</span>
-            </h1>
-            <p class="hero-subtitle">
-                <span data-i18n="hero_subtitle_1">Леопардовый принт в коде. Пиксельная точность в дизайне.</span>
-                <br><span data-i18n="hero_subtitle_2">Твоя идея + наш стиль = 🔥🔥</span>
-            </p>
-            <div class="hero-buttons">
-                <button class="btn-main large" data-i18n="hero_btn_1" data-action="scroll-contact">НАЧАТЬ ПРОЕКТ 💎</button>
-                <button class="btn-outline large" data-i18n="hero_btn_2" data-action="scroll-services">СМОТРЕТЬ РАБОТЫ 👀</button>
-            </div>
-        </div>
-
-        <!-- Shakespeare Meme Element -->
-        <div class="hero-meme">
-            <div class="meme-frame">
-                <div class="meme-shakespeare">
-                    <div class="shakespeare-face"></div>
-                    <div class="shakespeare-glasses"></div>
-                    <div class="shakespeare-body"></div>
-                </div>
-            </div>
-            <div class="meme-label">CEO SWAGA LABS</div>
-        </div>
-
-        <!-- Floating Elements -->
-        <div class="float-element float-1">🐆</div>
-        <div class="float-element float-2"></div>
-        <div class="float-element float-3">💎</div>
-        <div class="float-element float-4">🔥</div>
-        <div class="float-element float-5"></div>
-    </section>
-
-    <!-- Marquee -->
-    <div class="marquee-container">
-        <div class="marquee">
-            <span>SWAGA LABS ★ WEB DESIGN ★ DEVELOPMENT ★ BRANDING ★ MOBILE APPS ★ UI/UX ★ CREATIVE ★ SWAGA LABS ★ WEB DESIGN ★ DEVELOPMENT ★ BRANDING ★ MOBILE APPS ★ UI/UX ★ CREATIVE ★ </span>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-logo">SWAGA<span>LABS</span></div>
+            <div class="preloader-bar"><div class="preloader-fill"></div></div>
+            <div class="preloader-text">Loading the future...</div>
         </div>
     </div>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="section-title">
-            <span class="pixel-label" data-i18n="services_label">▸ ЧТО МЫ ДЕЛАЕМ</span>
-            <h2><span data-i18n="services_title_1">НАШИ</span> <span class="text-leopard" data-i18n="services_title_2">УСЛУГИ</span></h2>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo" data-cursor="lg">
+                <span class="nav-logo-mark">S</span>
+                <span class="nav-logo-text">SwagaLabs</span>
+            </a>
+            <div class="nav-links">
+                <a href="#trends" class="nav-link" data-cursor="sm">Trends</a>
+                <a href="#tech" class="nav-link" data-cursor="sm">Tech</a>
+                <a href="#culture" class="nav-link" data-cursor="sm">Culture</a>
+                <a href="#manifesto" class="nav-link" data-cursor="sm">Manifesto</a>
+                <a href="#radar" class="nav-link" data-cursor="sm">Radar</a>
+            </div>
+            <div class="nav-actions">
+                <div class="nav-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Live</span>
+                </div>
+                <button class="nav-cta" data-cursor="lg">Get Early Access</button>
+            </div>
+            <button class="nav-burger" id="nav-burger" data-cursor="lg">
+                <span></span>
+                <span></span>
+            </button>
         </div>
+    </nav>
 
-        <div class="services-grid">
-            <div class="service-card" data-delay="0">
-                <div class="card-leopard-border"></div>
-                <div class="card-icon">🎨</div>
-                <h3 data-i18n="service_1_title">WEB ДИЗАЙН</h3>
-                <p data-i18n="service_1_desc">Дизайн, от которого конкуренты плачут в подушку. Каждый пиксель на своём месте.</p>
-                <a href="#services" class="card-link" data-action="scroll-services" data-i18n="card_link">ПОДРОБНЕЕ →</a>
-            </div>
-
-            <div class="service-card" data-delay="100">
-                <div class="card-leopard-border"></div>
-                <div class="card-icon">💻</div>
-                <h3 data-i18n="service_2_title">РАЗРАБОТКА</h3>
-                <p data-i18n="service_2_desc">Чистый код, бешеная скорость. Мы строим не сайты — мы строим империи.</p>
-                <a href="#services" class="card-link" data-action="scroll-services" data-i18n="card_link">ПОДРОБНЕЕ →</a>
-            </div>
-
-            <div class="service-card" data-delay="200">
-                <div class="card-leopard-border"></div>
-                <div class="card-icon">📱</div>
-                <h3 data-i18n="service_3_title">МОБИЛЬНЫЕ ПРИЛОЖЕНИЯ</h3>
-                <p data-i18n="service_3_desc">iOS и Android приложения, которые пользователи не удалят даже случайно.</p>
-                <a href="#services" class="card-link" data-action="scroll-services" data-i18n="card_link">ПОДРОБНЕЕ →</a>
-            </div>
-
-            <div class="service-card" data-delay="300">
-                <div class="card-leopard-border"></div>
-                <div class="card-icon">🎭</div>
-                <h3 data-i18n="service_4_title">БРЕНДИНГ</h3>
-                <p data-i18n="service_4_desc">Бренд настолько огненный, что нужен огнетушитель. Полная айдентика с нуля.</p>
-                <a href="#services" class="card-link" data-action="scroll-services" data-i18n="card_link">ПОДРОБНЕЕ →</a>
-            </div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-inner">
+            <a href="#trends" class="mobile-link">Trends</a>
+            <a href="#tech" class="mobile-link">Tech</a>
+            <a href="#culture" class="mobile-link">Culture</a>
+            <a href="#manifesto" class="mobile-link">Manifesto</a>
+            <a href="#radar" class="mobile-link">Radar</a>
+            <button class="mobile-cta">Get Early Access</button>
         </div>
-    </section>
+    </div>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number" data-target="10">0</div>
-                <div class="stat-label" data-i18n="stat_1_label">ПРОЕКТОВ</div>
-                <div class="stat-bar"><div class="stat-fill" style="width: 95%"></div></div>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <canvas class="hero-particles" id="hero-particles"></canvas>
+        <div class="hero-grain"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span>Trend Intelligence Platform / 2026</span>
             </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="98">0</div>
-                <div class="stat-label" data-i18n="stat_2_label">% КЛИЕНТОВ ДОВОЛЬНЫ</div>
-                <div class="stat-bar"><div class="stat-fill" style="width: 98%"></div></div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="9">0</div>
-                <div class="stat-label" data-i18n="stat_3_label">В КОМАНДЕ</div>
-                <div class="stat-bar"><div class="stat-fill" style="width: 70%"></div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vibe Section -->
-    <section id="vibe" class="vibe-section">
-        <div class="vibe-content">
-            <span class="pixel-label" data-i18n="vibe_label">▸ НАШ ВАЙБ</span>
-            <h2><span data-i18n="vibe_title_1">НЕ ПРОСТО КОД —</span> <br><span class="text-leopard" data-i18n="vibe_title_2">ОБРАЗ ЖИЗНИ</span></h2>
-            <p class="vibe-text" data-i18n="vibe_text">
-                Мы не пишем код. Мы создаём цифровой флекс.
-                Каждый проект — это произведение искусства,
-                завернутое в леопард и поданное с пиксельной точностью.
+            <h1 class="hero-title">
+                <span class="title-line" data-scroll-reveal>
+                    <span class="title-word">We</span>
+                    <span class="title-word">Track</span>
+                </span>
+                <span class="title-line" data-scroll-reveal>
+                    <span class="title-word highlight">What's</span>
+                    <span class="title-word highlight">Next</span>
+                </span>
+                <span class="title-line" data-scroll-reveal>
+                    <span class="title-word">Before</span>
+                    <span class="title-word">It</span>
+                    <span class="title-word">Hits</span>
+                </span>
+            </h1>
+            <p class="hero-sub" data-scroll-reveal>
+                Design trends. Tech shifts. Cultural movements.<br>
+                All decoded in real-time by SwagaLabs.
             </p>
-            <div class="vibe-tags">
-                <span class="vibe-tag" data-i18n="vibe_tag_1">🐆 LEOPARD ENERGY</span>
-                <span class="vibe-tag" data-i18n="vibe_tag_2">👾 PIXEL PERFECT</span>
-                <span class="vibe-tag" data-i18n="vibe_tag_3">⚡ LIGHTNING FAST</span>
-                <span class="vibe-tag" data-i18n="vibe_tag_4"> PREMIUM QUALITY</span>
-                <span class="vibe-tag" data-i18n="vibe_tag_5">🔥 NO CAP</span>
-                <span class="vibe-tag" data-i18n="vibe_tag_6">😎 100% SWAGA</span>
+            <div class="hero-actions" data-scroll-reveal>
+                <button class="btn-primary" data-cursor="lg">
+                    <span>Explore Trends</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button class="btn-ghost" data-cursor="lg">
+                    <span>Watch Reel</span>
+                    <div class="btn-ghost-play">
+                        <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M1 1l10 6-10 6V1z" fill="currentColor"/></svg>
+                    </div>
+                </button>
+            </div>
+            <div class="hero-metrics" data-scroll-reveal>
+                <div class="metric">
+                    <span class="metric-value" data-count="2847">0</span>
+                    <span class="metric-label">Trends tracked</span>
+                </div>
+                <div class="metric-divider"></div>
+                <div class="metric">
+                    <span class="metric-value" data-count="156">0</span>
+                    <span class="metric-label">Industries</span>
+                </div>
+                <div class="metric-divider"></div>
+                <div class="metric">
+                    <span class="metric-value">24/7</span>
+                    <span class="metric-label">Real-time monitoring</span>
+                </div>
             </div>
         </div>
-        <div class="vibe-visual">
-            <div class="leopard-circle">
-                <div class="leopard-pattern"></div>
-            </div>
-            <div class="vibe-emoji"></div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll to explore</span>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="section-title">
-            <span class="pixel-label" data-i18n="testimonials_label">▸ ОТЗЫВЫ</span>
-            <h2><span data-i18n="testimonials_title_1">ЧТО ГОВОРЯТ</span> <span class="text-leopard" data-i18n="testimonials_title_2">КЛИЕНТЫ</span></h2>
+    <!-- Marquee Ticker -->
+    <div class="ticker">
+        <div class="ticker-track">
+            <div class="ticker-content">
+                <span class="ticker-item hot">AI-Native Design</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item">Spatial Computing</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item rising">Neo-Brutalism</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item">Liquid Interfaces</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item hot">Agentic UX</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item">Dark Maximalism</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item rising">Retro Futurism</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item">Haptic Design</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item hot">Voice-First UI</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item">Biophilic Tech</span>
+                <span class="ticker-dot"></span>
+            </div>
+            <div class="ticker-content" aria-hidden="true">
+                <span class="ticker-item hot">AI-Native Design</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item">Spatial Computing</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item rising">Neo-Brutalism</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item">Liquid Interfaces</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item hot">Agentic UX</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item">Dark Maximalism</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item rising">Retro Futurism</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item">Haptic Design</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item hot">Voice-First UI</span>
+                <span class="ticker-dot"></span>
+                <span class="ticker-item">Biophilic Tech</span>
+                <span class="ticker-dot"></span>
+            </div>
         </div>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                <p data-i18n="testimonial_1">"Swaga Labs перевернули мой бизнес. Мой сайт теперь выглядит дороже, чем мой автомобиль."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">🧔</div>
-                    <div>
-                        <strong>Алексей К.</strong>
-                        <span data-i18n="testimonial_1_role">CEO, TechCorp</span>
+    </div>
+
+    <!-- Trends Section -->
+    <section class="trends" id="trends">
+        <div class="section-header">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span>01 / Design Trends</span>
+            </div>
+            <h2 class="section-title" data-scroll-reveal>
+                <span class="title-line"><span class="title-word">Shaping</span> <span class="title-word">the</span></span>
+                <span class="title-line"><span class="title-word highlight">Visual</span> <span class="title-word highlight">Future</span></span>
+            </h2>
+            <p class="section-desc" data-scroll-reveal>The design landscape is evolving faster than ever. Here's what's defining the next era of digital aesthetics.</p>
+        </div>
+
+        <div class="trends-grid">
+            <div class="trend-card" data-tilt data-cursor="lg">
+                <div class="trend-card-inner">
+                    <div class="trend-number">01</div>
+                    <div class="trend-status hot">Trending</div>
+                    <div class="trend-visual">
+                        <div class="trend-orb" style="--orb-color: #FF6B35;"></div>
+                    </div>
+                    <h3 class="trend-title">AI-Generated Interfaces</h3>
+                    <p class="trend-desc">Design systems that adapt and evolve through machine learning, creating unique experiences for every user.</p>
+                    <div class="trend-meta">
+                        <span class="trend-tag">Design</span>
+                        <span class="trend-tag">AI</span>
+                        <span class="trend-growth">+340%</span>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                <p data-i18n="testimonial_2">"Ребята, это не просто разработка. Это искусство. Мой интернет-магазин стал выглядеть как Gucci."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">👩</div>
-                    <div>
-                        <strong>Мария С.</strong>
-                        <span data-i18n="testimonial_2_role">Founder, FashionHub</span>
+
+            <div class="trend-card" data-tilt data-cursor="lg">
+                <div class="trend-card-inner">
+                    <div class="trend-number">02</div>
+                    <div class="trend-status rising">Rising</div>
+                    <div class="trend-visual">
+                        <div class="trend-orb" style="--orb-color: #7B61FF;"></div>
+                    </div>
+                    <h3 class="trend-title">Spatial Typography</h3>
+                    <p class="trend-desc">Three-dimensional type that responds to depth, movement, and spatial context in mixed reality.</p>
+                    <div class="trend-meta">
+                        <span class="trend-tag">Type</span>
+                        <span class="trend-tag">3D</span>
+                        <span class="trend-growth">+180%</span>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                <p data-i18n="testimonial_3">"Заказал лендинг — получил шедевр. Конверсия выросла на 300%. Леопард работает!"</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">🧑💼</div>
-                    <div>
-                        <strong>Дмитрий В.</strong>
-                        <span data-i18n="testimonial_3_role">CMO, StartupXYZ</span>
+
+            <div class="trend-card" data-tilt data-cursor="lg">
+                <div class="trend-card-inner">
+                    <div class="trend-number">03</div>
+                    <div class="trend-status hot">Trending</div>
+                    <div class="trend-visual">
+                        <div class="trend-orb" style="--orb-color: #00D4AA;"></div>
+                    </div>
+                    <h3 class="trend-title">Liquid Glassmorphism</h3>
+                    <p class="trend-desc">Fluid, transparent layers that blend depth and clarity. Glass effects reimagined with dynamic motion.</p>
+                    <div class="trend-meta">
+                        <span class="trend-tag">UI</span>
+                        <span class="trend-tag">Glass</span>
+                        <span class="trend-growth">+520%</span>
                     </div>
                 </div>
+            </div>
+
+            <div class="trend-card" data-tilt data-cursor="lg">
+                <div class="trend-card-inner">
+                    <div class="trend-number">04</div>
+                    <div class="trend-status stable">Stable</div>
+                    <div class="trend-visual">
+                        <div class="trend-orb" style="--orb-color: #FF3366;"></div>
+                    </div>
+                    <h3 class="trend-title">Dark Maximalism</h3>
+                    <p class="trend-desc">Bold, expressive dark themes with rich textures, layered gradients, and intentional visual noise.</p>
+                    <div class="trend-meta">
+                        <span class="trend-tag">Aesthetic</span>
+                        <span class="trend-tag">Dark</span>
+                        <span class="trend-growth">+95%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trend-card" data-tilt data-cursor="lg">
+                <div class="trend-card-inner">
+                    <div class="trend-number">05</div>
+                    <div class="trend-status rising">Rising</div>
+                    <div class="trend-visual">
+                        <div class="trend-orb" style="--orb-color: #FFD700;"></div>
+                    </div>
+                    <h3 class="trend-title">Kinetic Branding</h3>
+                    <p class="trend-desc">Identity systems built around motion. Logos that breathe, type that flows, colors that pulse.</p>
+                    <div class="trend-meta">
+                        <span class="trend-tag">Brand</span>
+                        <span class="trend-tag">Motion</span>
+                        <span class="trend-growth">+210%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trend-card" data-tilt data-cursor="lg">
+                <div class="trend-card-inner">
+                    <div class="trend-number">06</div>
+                    <div class="trend-status hot">Trending</div>
+                    <div class="trend-visual">
+                        <div class="trend-orb" style="--orb-color: #00BFFF;"></div>
+                    </div>
+                    <h3 class="trend-title">Agentic Interfaces</h3>
+                    <p class="trend-desc">UIs that anticipate, act, and adapt autonomously. The rise of agent-first design patterns.</p>
+                    <div class="trend-meta">
+                        <span class="trend-tag">UX</span>
+                        <span class="trend-tag">AI</span>
+                        <span class="trend-growth">+890%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Pulse Section -->
+    <section class="tech" id="tech">
+        <div class="section-header">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span>02 / Tech Pulse</span>
+            </div>
+            <h2 class="section-title" data-scroll-reveal>
+                <span class="title-line"><span class="title-word">The</span> <span class="title-word">Stack</span></span>
+                <span class="title-line"><span class="title-word highlight">Is</span> <span class="title-word highlight">Shifting</span></span>
+            </h2>
+        </div>
+
+        <div class="tech-dashboard">
+            <div class="tech-card tech-card-wide" data-scroll-reveal>
+                <div class="tech-card-header">
+                    <h3>Technology Adoption Index</h3>
+                    <div class="tech-card-badge live">Live Data</div>
+                </div>
+                <div class="tech-bars">
+                    <div class="tech-bar-row">
+                        <span class="tech-bar-label">AI/ML Frameworks</span>
+                        <div class="tech-bar"><div class="tech-bar-fill" data-width="94" style="--bar-color: #7B61FF;"></div></div>
+                        <span class="tech-bar-value">94%</span>
+                    </div>
+                    <div class="tech-bar-row">
+                        <span class="tech-bar-label">Edge Computing</span>
+                        <div class="tech-bar"><div class="tech-bar-fill" data-width="78" style="--bar-color: #00D4AA;"></div></div>
+                        <span class="tech-bar-value">78%</span>
+                    </div>
+                    <div class="tech-bar-row">
+                        <span class="tech-bar-label">WebGPU / WASM</span>
+                        <div class="tech-bar"><div class="tech-bar-fill" data-width="67" style="--bar-color: #FF6B35;"></div></div>
+                        <span class="tech-bar-value">67%</span>
+                    </div>
+                    <div class="tech-bar-row">
+                        <span class="tech-bar-label">Rust Ecosystem</span>
+                        <div class="tech-bar"><div class="tech-bar-fill" data-width="72" style="--bar-color: #FF3366;"></div></div>
+                        <span class="tech-bar-value">72%</span>
+                    </div>
+                    <div class="tech-bar-row">
+                        <span class="tech-bar-label">Local-First Software</span>
+                        <div class="tech-bar"><div class="tech-bar-fill" data-width="58" style="--bar-color: #FFD700;"></div></div>
+                        <span class="tech-bar-value">58%</span>
+                    </div>
+                    <div class="tech-bar-row">
+                        <span class="tech-bar-label">Agent Protocols</span>
+                        <div class="tech-bar"><div class="tech-bar-fill" data-width="89" style="--bar-color: #00BFFF;"></div></div>
+                        <span class="tech-bar-value">89%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-card" data-scroll-reveal>
+                <div class="tech-card-header">
+                    <h3>Hot Takes</h3>
+                    <div class="tech-card-badge">Q2 2026</div>
+                </div>
+                <div class="tech-takes">
+                    <div class="tech-take">
+                        <div class="take-icon up">+</div>
+                        <div class="take-content">
+                            <strong>AI Agents</strong>
+                            <span>Replacing entire SaaS categories. Autonomous workflows becoming default.</span>
+                        </div>
+                    </div>
+                    <div class="tech-take">
+                        <div class="take-icon up">+</div>
+                        <div class="take-content">
+                            <strong>Local-First</strong>
+                            <span>Cloud fatigue is real. CRDTs and sync engines are the new primitives.</span>
+                        </div>
+                    </div>
+                    <div class="tech-take">
+                        <div class="take-icon down">-</div>
+                        <div class="take-content">
+                            <strong>Microservices</strong>
+                            <span>The pendulum swings back. Monoliths are cool again (with caveats).</span>
+                        </div>
+                    </div>
+                    <div class="tech-take">
+                        <div class="take-icon up">+</div>
+                        <div class="take-content">
+                            <strong>Spatial Web</strong>
+                            <span>AR/VR interfaces becoming practical. Design for depth, not just screens.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-card" data-scroll-reveal>
+                <div class="tech-card-header">
+                    <h3>Stack Momentum</h3>
+                    <div class="tech-card-badge">Real-time</div>
+                </div>
+                <div class="momentum-list">
+                    <div class="momentum-item">
+                        <span class="momentum-rank">01</span>
+                        <span class="momentum-name">Claude API</span>
+                        <span class="momentum-change positive">+127%</span>
+                    </div>
+                    <div class="momentum-item">
+                        <span class="momentum-rank">02</span>
+                        <span class="momentum-name">Bun Runtime</span>
+                        <span class="momentum-change positive">+84%</span>
+                    </div>
+                    <div class="momentum-item">
+                        <span class="momentum-rank">03</span>
+                        <span class="momentum-name">Tauri 2.0</span>
+                        <span class="momentum-change positive">+72%</span>
+                    </div>
+                    <div class="momentum-item">
+                        <span class="momentum-rank">04</span>
+                        <span class="momentum-name">tRPC</span>
+                        <span class="momentum-change positive">+51%</span>
+                    </div>
+                    <div class="momentum-item">
+                        <span class="momentum-rank">05</span>
+                        <span class="momentum-name">Effect-TS</span>
+                        <span class="momentum-change positive">+48%</span>
+                    </div>
+                    <div class="momentum-item">
+                        <span class="momentum-rank">06</span>
+                        <span class="momentum-name">SolidJS</span>
+                        <span class="momentum-change positive">+39%</span>
+                    </div>
+                    <div class="momentum-item">
+                        <span class="momentum-rank">07</span>
+                        <span class="momentum-name">Drizzle ORM</span>
+                        <span class="momentum-change positive">+35%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section - Horizontal Scroll -->
+    <section class="culture" id="culture">
+        <div class="section-header">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span>03 / Culture & Style</span>
+            </div>
+            <h2 class="section-title" data-scroll-reveal>
+                <span class="title-line"><span class="title-word">Street</span> <span class="title-word">Meets</span></span>
+                <span class="title-line"><span class="title-word highlight">Silicon</span> <span class="title-word highlight">Valley</span></span>
+            </h2>
+        </div>
+
+        <div class="culture-scroll" id="culture-scroll">
+            <div class="culture-track">
+                <div class="culture-card" data-cursor="lg">
+                    <div class="culture-card-bg" style="--card-accent: #FF6B35;"></div>
+                    <div class="culture-card-content">
+                        <span class="culture-tag">Fashion x Tech</span>
+                        <h3>Techwear 3.0</h3>
+                        <p>Functional fabrics meet generative design. Clothing that adapts to context, environment, and mood.</p>
+                        <div class="culture-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="culture-card" data-cursor="lg">
+                    <div class="culture-card-bg" style="--card-accent: #7B61FF;"></div>
+                    <div class="culture-card-content">
+                        <span class="culture-tag">Workspace</span>
+                        <h3>The Anti-Office</h3>
+                        <p>Remote-first culture gave birth to nomadic studios, co-living labs, and async-by-default teams.</p>
+                        <div class="culture-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="culture-card" data-cursor="lg">
+                    <div class="culture-card-bg" style="--card-accent: #00D4AA;"></div>
+                    <div class="culture-card-content">
+                        <span class="culture-tag">Digital Identity</span>
+                        <h3>Post-Social Media</h3>
+                        <p>From broadcasting to curating. Private communities, micro-networks, and intentional digital presence.</p>
+                        <div class="culture-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="culture-card" data-cursor="lg">
+                    <div class="culture-card-bg" style="--card-accent: #FF3366;"></div>
+                    <div class="culture-card-content">
+                        <span class="culture-tag">Architecture</span>
+                        <h3>Parametric Spaces</h3>
+                        <p>Algorithm-designed interiors and facades. Buildings that learn from how people move through them.</p>
+                        <div class="culture-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="culture-card" data-cursor="lg">
+                    <div class="culture-card-bg" style="--card-accent: #FFD700;"></div>
+                    <div class="culture-card-content">
+                        <span class="culture-tag">Music x Code</span>
+                        <h3>Algorithmic Sound</h3>
+                        <p>AI-composed soundscapes for focus, creation, and ambiance. Music as an API, not just an art form.</p>
+                        <div class="culture-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="culture-scroll-hint">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Drag to explore</span>
+        </div>
+    </section>
+
+    <!-- Manifesto Section - Scroll-Pinned -->
+    <section class="manifesto" id="manifesto">
+        <div class="manifesto-sticky">
+            <div class="section-label manifesto-label">
+                <span class="label-line"></span>
+                <span>04 / Our Manifesto</span>
+            </div>
+            <div class="manifesto-text" id="manifesto-text">
+                <span class="manifesto-word">We</span>
+                <span class="manifesto-word">don't</span>
+                <span class="manifesto-word">follow</span>
+                <span class="manifesto-word highlight">trends.</span>
+                <span class="manifesto-word">We</span>
+                <span class="manifesto-word highlight">decode</span>
+                <span class="manifesto-word">them.</span>
+                <span class="manifesto-word">Every</span>
+                <span class="manifesto-word">pixel</span>
+                <span class="manifesto-word">tells</span>
+                <span class="manifesto-word">a</span>
+                <span class="manifesto-word highlight">story.</span>
+                <span class="manifesto-word">Every</span>
+                <span class="manifesto-word">line</span>
+                <span class="manifesto-word">of</span>
+                <span class="manifesto-word">code</span>
+                <span class="manifesto-word">is</span>
+                <span class="manifesto-word">a</span>
+                <span class="manifesto-word highlight">statement.</span>
+                <span class="manifesto-word">We</span>
+                <span class="manifesto-word">build</span>
+                <span class="manifesto-word">for</span>
+                <span class="manifesto-word">the</span>
+                <span class="manifesto-word highlight">restless,</span>
+                <span class="manifesto-word">the</span>
+                <span class="manifesto-word highlight">curious,</span>
+                <span class="manifesto-word">the</span>
+                <span class="manifesto-word highlight">ones</span>
+                <span class="manifesto-word">who</span>
+                <span class="manifesto-word">ship</span>
+                <span class="manifesto-word">at</span>
+                <span class="manifesto-word highlight">midnight.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trend Radar Section -->
+    <section class="radar" id="radar">
+        <div class="section-header">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span>05 / Trend Radar</span>
+            </div>
+            <h2 class="section-title" data-scroll-reveal>
+                <span class="title-line"><span class="title-word">The</span> <span class="title-word">Full</span></span>
+                <span class="title-line"><span class="title-word highlight">Spectrum</span></span>
+            </h2>
+            <p class="section-desc" data-scroll-reveal>Interactive trend map. Click categories to filter. Hover for details.</p>
+        </div>
+
+        <div class="radar-filters" data-scroll-reveal>
+            <button class="radar-filter active" data-filter="all">All</button>
+            <button class="radar-filter" data-filter="design">Design</button>
+            <button class="radar-filter" data-filter="tech">Tech</button>
+            <button class="radar-filter" data-filter="culture">Culture</button>
+            <button class="radar-filter" data-filter="business">Business</button>
+        </div>
+
+        <div class="radar-grid" id="radar-grid">
+            <div class="radar-item" data-category="design" data-cursor="sm">
+                <div class="radar-item-heat" style="--heat: 95%;"></div>
+                <span class="radar-item-name">AI-Native Design</span>
+                <span class="radar-item-score">9.5</span>
+            </div>
+            <div class="radar-item" data-category="tech" data-cursor="sm">
+                <div class="radar-item-heat" style="--heat: 92%;"></div>
+                <span class="radar-item-name">Agent Protocols</span>
+                <span class="radar-item-score">9.2</span>
+            </div>
+            <div class="radar-item" data-category="design" data-cursor="sm">
+                <div class="radar-item-heat" style="--heat: 88%;"></div>
+                <span class="radar-item-name">Spatial UI</span>
+                <span class="radar-item-score">8.8</span>
+            </div>
+            <div class="radar-item" data-category="culture" data-cursor="sm">
+                <div class="radar-item-heat" style="--heat: 85%;"></div>
+                <span class="radar-item-name">Post-Social Media</span>
+                <span class="radar-item-score">8.5</span>
+            </div>
+            <div class="radar-item" data-category="tech" data-cursor="sm">
+                <div class="radar-item-heat" style="--heat: 82%;"></div>
+                <span class="radar-item-name">Local-First</span>
+                <span class="radar-item-score">8.2</span>
+            </div>
+            <div class="radar-item" data-category="business" data-cursor="sm">
+                <div class="radar-item-heat" style="--heat: 80%;"></div>
+                <span class="radar-item-name">Solo Founder Era</span>
+                <span class="radar-item-score">8.0</span>
+            </div>
+            <div class="radar-item" data-category="design" data-cursor="sm">
+                <div class="radar-item-heat" style="--heat: 78%;"></div>
+                <span class="radar-item-name">Liquid Glass</span>
+                <span class="radar-item-score">7.8</span>
+            </div>
+            <div class="radar-item" data-category="culture" data-cursor="sm">
+                <div class="radar-item-heat" style="--heat: 76%;"></div>
+                <span class="radar-item-name">Techwear 3.0</span>
+                <span class="radar-item-score">7.6</span>
+            </div>
+            <div class="radar-item" data-category="tech" data-cursor="sm">
+                <div class="radar-item-heat" style="--heat: 74%;"></div>
+                <span class="radar-item-name">Rust Everywhere</span>
+                <span class="radar-item-score">7.4</span>
+            </div>
+            <div class="radar-item" data-category="business" data-cursor="sm">
+                <div class="radar-item-heat" style="--heat: 72%;"></div>
+                <span class="radar-item-name">AI-First GTM</span>
+                <span class="radar-item-score">7.2</span>
+            </div>
+            <div class="radar-item" data-category="culture" data-cursor="sm">
+                <div class="radar-item-heat" style="--heat: 70%;"></div>
+                <span class="radar-item-name">Nomadic Studios</span>
+                <span class="radar-item-score">7.0</span>
+            </div>
+            <div class="radar-item" data-category="design" data-cursor="sm">
+                <div class="radar-item-heat" style="--heat: 68%;"></div>
+                <span class="radar-item-name">Kinetic Brand</span>
+                <span class="radar-item-score">6.8</span>
+            </div>
+            <div class="radar-item" data-category="tech" data-cursor="sm">
+                <div class="radar-item-heat" style="--heat: 65%;"></div>
+                <span class="radar-item-name">WebGPU</span>
+                <span class="radar-item-score">6.5</span>
+            </div>
+            <div class="radar-item" data-category="business" data-cursor="sm">
+                <div class="radar-item-heat" style="--heat: 63%;"></div>
+                <span class="radar-item-name">Vertical SaaS</span>
+                <span class="radar-item-score">6.3</span>
+            </div>
+            <div class="radar-item" data-category="culture" data-cursor="sm">
+                <div class="radar-item-heat" style="--heat: 60%;"></div>
+                <span class="radar-item-name">Algorithmic Music</span>
+                <span class="radar-item-score">6.0</span>
+            </div>
+            <div class="radar-item" data-category="design" data-cursor="sm">
+                <div class="radar-item-heat" style="--heat: 58%;"></div>
+                <span class="radar-item-name">Neo-Brutalism</span>
+                <span class="radar-item-score">5.8</span>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section id="contact" class="cta-section">
-        <div class="cta-leopard-bg"></div>
-        <div class="cta-content">
-            <span class="pixel-label" data-i18n="cta_label">▸ ГОТОВ К ВАЙБУ?</span>
-            <h2><span data-i18n="cta_title_1">ДАВАЙ СОЗДАДИМ</span> <br><span class="text-leopard" data-i18n="cta_title_2">ЧТО-ТО ЛЕГЕНДАРНОЕ</span></h2>
-            <p data-i18n="cta_subtitle">Твоя идея + наша команда = 💥 БУМ 💥</p>
-            <div class="cta-buttons">
-                <button class="btn-main large" data-i18n="cta_btn_1" data-action="telegram-manager">НАПИСАТЬ НАМ 💬</button>
-                <button class="btn-outline large" data-i18n="cta_btn_2" data-action="book-call">ЗАБРОНИРОВАТЬ ЗВОНОК 📞</button>
+    <section class="cta" id="cta">
+        <div class="cta-inner">
+            <div class="cta-content" data-scroll-reveal>
+                <span class="cta-eyebrow">Join the network</span>
+                <h2 class="cta-title">
+                    <span class="title-line"><span class="title-word">Stay</span></span>
+                    <span class="title-line"><span class="title-word highlight">Ahead.</span></span>
+                </h2>
+                <p class="cta-desc">Get weekly trend intelligence drops. No spam, just signal.</p>
+                <div class="cta-form">
+                    <div class="cta-input-wrap">
+                        <input type="email" class="cta-input" placeholder="your@email.com" data-cursor="sm">
+                        <button class="cta-submit" data-cursor="lg">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                    </div>
+                    <span class="cta-note">2,847 founders already subscribed</span>
+                </div>
             </div>
-            <div class="cta-contacts">
-                <span>📧 hello@swagalabs.com</span>
-                <span data-i18n="cta_location">📍 Вильнюс, Литва</span>
+            <div class="cta-visual">
+                <div class="cta-orbs">
+                    <div class="cta-orb cta-orb-1"></div>
+                    <div class="cta-orb cta-orb-2"></div>
+                    <div class="cta-orb cta-orb-3"></div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
+        <div class="footer-top">
             <div class="footer-brand">
-                <div class="logo">
-                    <span class="logo-pixel"></span>
-                    <span class="logo-text">SWAGA</span>
-                    <span class="logo-labs">LABS</span>
-                </div>
-                <p data-i18n="footer_tagline">Стиль. Код. Леопард.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link">🐦</a>
-                    <a href="#" class="social-link">📸</a>
-                    <a href="#" class="social-link"></a>
-                    <a href="#" class="social-link">🎵</a>
-                </div>
+                <a href="#" class="nav-logo">
+                    <span class="nav-logo-mark">S</span>
+                    <span class="nav-logo-text">SwagaLabs</span>
+                </a>
+                <p class="footer-tagline">Trend intelligence for<br>the restless builders.</p>
             </div>
-            <div class="footer-nav">
+            <div class="footer-grid">
                 <div class="footer-col">
-                    <h4 data-i18n="footer_company">КОМПАНИЯ</h4>
-                    <a href="#home" data-i18n="footer_about">О нас</a>
-                    <a href="#contact" data-i18n="footer_careers">Карьера</a>
-                    <a href="#vibe" data-i18n="footer_blog">Блог</a>
+                    <h4>Platform</h4>
+                    <a href="#">Trends</a>
+                    <a href="#">Radar</a>
+                    <a href="#">Reports</a>
+                    <a href="#">API</a>
                 </div>
                 <div class="footer-col">
-                    <h4 data-i18n="footer_services">УСЛУГИ</h4>
-                    <a href="#services" data-i18n="footer_web_design">Веб-дизайн</a>
-                    <a href="#services" data-i18n="footer_development">Разработка</a>
-                    <a href="#services" data-i18n="footer_branding">Брендинг</a>
+                    <h4>Company</h4>
+                    <a href="#">About</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Press</a>
                 </div>
                 <div class="footer-col">
-                    <h4 data-i18n="footer_contacts">КОНТАКТЫ</h4>
-                    <a href="mailto:hello@swagalabs.com">hello@swagalabs.com</a>
-                    <a href="#" data-action="telegram-channel" data-i18n="footer_telegram">Telegram</a>
+                    <h4>Connect</h4>
+                    <a href="#">Twitter/X</a>
+                    <a href="#">Discord</a>
+                    <a href="#">GitHub</a>
+                    <a href="#">Newsletter</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p data-i18n="footer_copyright">© 2026 Swaga Labs. Все права защищены. Сделано с 🐆 и кофеином.</p>
+            <span>&copy; 2026 SwagaLabs. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
         </div>
     </footer>
 
