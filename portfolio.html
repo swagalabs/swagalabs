@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwagaLabs — Full-Cycle Software Development Studio</title>
+    <meta name="description" content="SwagaLabs is a full-cycle software development studio specializing in fintech, AI/ML, marketplaces, and enterprise solutions. 13-person team. 14 products shipped.">
+    <meta property="og:title" content="SwagaLabs — We Build What Others Can't">
+    <meta property="og:description" content="Full-cycle software development studio. Fintech · AI/ML · Marketplaces · SaaS · Mobile · DevTools">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ═══════════════════════════════════════════════════════════════
+           SwagaLabs Portfolio — Premium Dark Theme
+           ═══════════════════════════════════════════════════════════════ */
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #030304;
+            --bg-secondary: #0A0A0C;
+            --bg-tertiary: #111114;
+            --bg-card: #0D0D10;
+            --bg-card-hover: #141418;
+            --border-subtle: rgba(255,255,255,0.06);
+            --border-medium: rgba(255,255,255,0.1);
+            --border-accent: rgba(205,255,0,0.3);
+
+            --text-primary: #F5F5F7;
+            --text-secondary: #A1A1AA;
+            --text-tertiary: #71717A;
+            --text-muted: #52525B;
+
+            --accent: #CDFF00;
+            --accent-dim: rgba(205,255,0,0.15);
+            --accent-glow: rgba(205,255,0,0.08);
+            --blue: #3B82F6;
+            --purple: #8B5CF6;
+            --emerald: #10B981;
+            --orange: #F97316;
+            --rose: #F43F5E;
+            --cyan: #06B6D4;
+
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+            --container: 1280px;
+            --section-gap: 160px;
+        }
+
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        ::selection { background: var(--accent); color: #000; }
+
+        .container { max-width: var(--container); margin: 0 auto; padding: 0 40px; }
+
+        /* ─── Scroll Progress ─── */
+        .scroll-progress {
+            position: fixed; top: 0; left: 0; height: 2px; z-index: 9999;
+            background: var(--accent);
+            transform-origin: left; transform: scaleX(0);
+            transition: none;
+        }
+
+        /* ─── Navigation ─── */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 20px 0;
+            background: rgba(3,3,4,0.8);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: all 0.4s var(--ease-out);
+        }
+
+        .nav.scrolled { padding: 12px 0; }
+
+        .nav-inner {
+            max-width: var(--container); margin: 0 auto; padding: 0 40px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display); font-weight: 700; font-size: 22px;
+            letter-spacing: -0.5px; color: var(--text-primary); text-decoration: none;
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .nav-logo .dot {
+            width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+            box-shadow: 0 0 12px var(--accent);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.8); }
+        }
+
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 14px;
+            font-weight: 500; letter-spacing: 0.3px;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 1.5px; background: var(--accent);
+            transition: width 0.3s var(--ease-out);
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background: var(--accent); color: #000; border: none;
+            padding: 10px 24px; border-radius: 8px; font-weight: 600;
+            font-size: 14px; cursor: pointer; font-family: var(--font-body);
+            transition: all 0.3s var(--ease-out);
+            text-decoration: none;
+        }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(205,255,0,0.3); }
+
+        /* ─── Hero ─── */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            position: relative; padding: 140px 0 100px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute; inset: 0; z-index: 0;
+        }
+
+        .hero-bg::before {
+            content: ''; position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(205,255,0,0.04) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 20% 80%, rgba(59,130,246,0.03) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(139,92,246,0.03) 0%, transparent 60%);
+        }
+
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 80px 80px;
+            mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black, transparent);
+        }
+
+        .hero-content { position: relative; z-index: 1; text-align: center; max-width: 960px; }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 6px 16px; border-radius: 100px;
+            background: var(--accent-dim); border: 1px solid var(--border-accent);
+            font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+            color: var(--accent); letter-spacing: 0.5px;
+            margin-bottom: 32px;
+            opacity: 0; transform: translateY(20px);
+            animation: fadeUp 0.8s 0.2s var(--ease-out) forwards;
+        }
+
+        .hero-badge .pulse {
+            width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+            animation: pulse-dot 1.5s infinite;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display); font-size: clamp(48px, 7vw, 88px);
+            font-weight: 700; line-height: 1.05; letter-spacing: -3px;
+            margin-bottom: 28px;
+            opacity: 0; transform: translateY(30px);
+            animation: fadeUp 0.8s 0.4s var(--ease-out) forwards;
+        }
+
+        .hero h1 .accent { color: var(--accent); }
+        .hero h1 .thin { font-weight: 300; color: var(--text-secondary); }
+
+        .hero-sub {
+            font-size: clamp(16px, 2vw, 20px); color: var(--text-secondary);
+            max-width: 640px; margin: 0 auto 48px; line-height: 1.7;
+            opacity: 0; transform: translateY(30px);
+            animation: fadeUp 0.8s 0.6s var(--ease-out) forwards;
+        }
+
+        .hero-actions {
+            display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+            opacity: 0; transform: translateY(30px);
+            animation: fadeUp 0.8s 0.8s var(--ease-out) forwards;
+        }
+
+        .btn-primary {
+            background: var(--accent); color: #000; border: none;
+            padding: 16px 36px; border-radius: 12px; font-weight: 700;
+            font-size: 16px; cursor: pointer; font-family: var(--font-body);
+            transition: all 0.3s var(--ease-out);
+            text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(205,255,0,0.3); }
+
+        .btn-outline {
+            background: transparent; color: var(--text-primary);
+            border: 1px solid var(--border-medium);
+            padding: 16px 36px; border-radius: 12px; font-weight: 600;
+            font-size: 16px; cursor: pointer; font-family: var(--font-body);
+            transition: all 0.3s var(--ease-out);
+            text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ─── Stats Bar ─── */
+        .stats-bar {
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            background: var(--bg-secondary);
+            padding: 48px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-bar::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
+            opacity: 0.5;
+        }
+
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px;
+            position: relative; z-index: 1;
+        }
+
+        .stat-item { text-align: center; }
+
+        .stat-number {
+            font-family: var(--font-display); font-size: 48px; font-weight: 700;
+            color: var(--text-primary); letter-spacing: -2px;
+            line-height: 1;
+        }
+        .stat-number .accent-num { color: var(--accent); }
+
+        .stat-label {
+            font-size: 13px; color: var(--text-tertiary); margin-top: 8px;
+            text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;
+        }
+
+        /* ─── Section Styles ─── */
+        .section { padding: var(--section-gap) 0; position: relative; }
+
+        .section-label {
+            font-family: var(--font-mono); font-size: 12px; color: var(--accent);
+            text-transform: uppercase; letter-spacing: 3px; font-weight: 600;
+            margin-bottom: 16px;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .section-label::before {
+            content: ''; width: 24px; height: 1px; background: var(--accent);
+        }
+
+        .section-title {
+            font-family: var(--font-display); font-size: clamp(36px, 4.5vw, 56px);
+            font-weight: 700; letter-spacing: -2px; line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .section-desc {
+            font-size: 18px; color: var(--text-secondary); max-width: 560px;
+            line-height: 1.7; margin-bottom: 64px;
+        }
+
+        /* ─── Services ─── */
+        .services-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px; padding: 40px;
+            transition: all 0.4s var(--ease-out);
+            position: relative; overflow: hidden;
+        }
+
+        .service-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0; transition: opacity 0.4s;
+        }
+
+        .service-card:hover {
+            border-color: var(--border-accent);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+        }
+
+        .service-card:hover::before { opacity: 1; }
+
+        .service-icon {
+            width: 56px; height: 56px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; margin-bottom: 24px;
+            position: relative;
+        }
+
+        .service-icon::after {
+            content: ''; position: absolute; inset: -4px;
+            border-radius: 18px; opacity: 0.15;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-display); font-size: 22px; font-weight: 600;
+            letter-spacing: -0.5px; margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-secondary); font-size: 14px; line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .service-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .service-tag {
+            font-family: var(--font-mono); font-size: 11px; padding: 4px 10px;
+            border-radius: 6px; background: rgba(255,255,255,0.04);
+            color: var(--text-tertiary); border: 1px solid var(--border-subtle);
+        }
+
+        /* ─── Case Studies / Portfolio ─── */
+        .cases-grid { display: flex; flex-direction: column; gap: 32px; }
+
+        .case-card {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+            background: var(--bg-card); border: 1px solid var(--border-subtle);
+            border-radius: 24px; overflow: hidden;
+            transition: all 0.4s var(--ease-out);
+        }
+
+        .case-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .case-visual {
+            position: relative; min-height: 360px;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+
+        .case-visual-inner {
+            position: absolute; inset: 0;
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; gap: 16px; padding: 40px;
+        }
+
+        .case-visual .case-icon {
+            font-size: 48px; margin-bottom: 8px;
+            filter: drop-shadow(0 0 20px currentColor);
+        }
+
+        .case-visual .case-tech-visual {
+            display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+        }
+
+        .case-visual .tech-pill {
+            font-family: var(--font-mono); font-size: 11px;
+            padding: 6px 14px; border-radius: 100px;
+            background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7);
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .case-content { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
+
+        .case-category {
+            font-family: var(--font-mono); font-size: 11px;
+            text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: 12px; font-weight: 600;
+        }
+
+        .case-content h3 {
+            font-family: var(--font-display); font-size: 28px;
+            font-weight: 700; letter-spacing: -1px; margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .case-content p {
+            color: var(--text-secondary); font-size: 15px; line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .case-metrics {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .case-metric {
+            padding: 16px; border-radius: 12px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .case-metric-value {
+            font-family: var(--font-display); font-size: 24px; font-weight: 700;
+            letter-spacing: -1px; margin-bottom: 4px;
+        }
+
+        .case-metric-label {
+            font-size: 11px; color: var(--text-tertiary);
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .case-stack { display: flex; flex-wrap: wrap; gap: 8px; }
+        .case-stack-item {
+            font-family: var(--font-mono); font-size: 12px;
+            padding: 6px 14px; border-radius: 8px;
+            background: rgba(255,255,255,0.04);
+            color: var(--text-secondary); border: 1px solid var(--border-subtle);
+        }
+
+        /* ─── Tech Stack ─── */
+        .tech-section { background: var(--bg-secondary); }
+
+        .tech-categories { display: flex; flex-direction: column; gap: 48px; }
+
+        .tech-category h3 {
+            font-family: var(--font-mono); font-size: 13px; color: var(--text-tertiary);
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;
+            padding-bottom: 12px; border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .tech-items { display: flex; flex-wrap: wrap; gap: 12px; }
+
+        .tech-item {
+            display: flex; align-items: center; gap: 10px;
+            padding: 12px 20px; border-radius: 12px;
+            background: var(--bg-card); border: 1px solid var(--border-subtle);
+            transition: all 0.3s var(--ease-out);
+            cursor: default;
+        }
+
+        .tech-item:hover {
+            border-color: var(--border-accent);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+        }
+
+        .tech-item-icon { font-size: 20px; }
+
+        .tech-item-name {
+            font-size: 14px; font-weight: 500; color: var(--text-primary);
+        }
+
+        .tech-item-exp {
+            font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);
+            margin-left: 4px;
+        }
+
+        /* ─── Process ─── */
+        .process-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+            position: relative;
+        }
+
+        .process-grid::before {
+            content: ''; position: absolute; top: 40px;
+            left: calc(12.5% + 12px); right: calc(12.5% + 12px);
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent), var(--border-medium), var(--border-medium), var(--accent));
+            z-index: 0;
+        }
+
+        .process-step {
+            text-align: center; position: relative; z-index: 1;
+            padding: 0 8px;
+        }
+
+        .process-step-num {
+            width: 80px; height: 80px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 24px;
+            font-family: var(--font-display); font-size: 28px; font-weight: 700;
+            background: var(--bg-card); border: 2px solid var(--border-medium);
+            color: var(--text-primary);
+            transition: all 0.4s var(--ease-out);
+        }
+
+        .process-step:hover .process-step-num {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px var(--accent-dim);
+            color: var(--accent);
+        }
+
+        .process-step h3 {
+            font-family: var(--font-display); font-size: 18px; font-weight: 600;
+            margin-bottom: 8px; letter-spacing: -0.3px;
+        }
+
+        .process-step p {
+            font-size: 13px; color: var(--text-tertiary); line-height: 1.6;
+        }
+
+        /* ─── Why Us ─── */
+        .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+
+        .why-card {
+            padding: 40px; border-radius: 20px;
+            background: var(--bg-card); border: 1px solid var(--border-subtle);
+            transition: all 0.4s var(--ease-out);
+        }
+
+        .why-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-4px);
+        }
+
+        .why-card-icon { font-size: 32px; margin-bottom: 20px; }
+
+        .why-card h3 {
+            font-family: var(--font-display); font-size: 22px; font-weight: 600;
+            letter-spacing: -0.5px; margin-bottom: 12px;
+        }
+
+        .why-card p {
+            color: var(--text-secondary); font-size: 14px; line-height: 1.7;
+        }
+
+        /* ─── Testimonial / Quote ─── */
+        .quote-section {
+            text-align: center; padding: var(--section-gap) 0;
+            position: relative;
+        }
+
+        .quote-section::before {
+            content: '"'; font-family: var(--font-display);
+            font-size: 200px; color: var(--accent); opacity: 0.1;
+            position: absolute; top: 60px; left: 50%; transform: translateX(-50%);
+            line-height: 1;
+        }
+
+        .quote-text {
+            font-family: var(--font-display); font-size: clamp(24px, 3vw, 36px);
+            font-weight: 500; letter-spacing: -1px; line-height: 1.4;
+            max-width: 800px; margin: 0 auto 32px;
+            color: var(--text-primary);
+        }
+
+        .quote-author {
+            font-size: 14px; color: var(--text-tertiary);
+        }
+
+        .quote-author strong { color: var(--text-secondary); }
+
+        /* ─── CTA ─── */
+        .cta-section {
+            padding: 120px 0; text-align: center;
+            position: relative; overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: ''; position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 50% 100%, rgba(205,255,0,0.06) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 30% at 20% 50%, rgba(59,130,246,0.03) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 30% at 80% 50%, rgba(139,92,246,0.03) 0%, transparent 60%);
+        }
+
+        .cta-content { position: relative; z-index: 1; }
+
+        .cta-content h2 {
+            font-family: var(--font-display); font-size: clamp(36px, 5vw, 64px);
+            font-weight: 700; letter-spacing: -2px; margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .cta-content p {
+            font-size: 18px; color: var(--text-secondary); max-width: 480px;
+            margin: 0 auto 40px; line-height: 1.7;
+        }
+
+        .cta-email {
+            font-family: var(--font-mono); font-size: 20px; font-weight: 600;
+            color: var(--accent); letter-spacing: 0.5px; margin-bottom: 32px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .cta-email:hover { text-decoration: underline; }
+
+        .cta-channels {
+            display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .cta-channel {
+            display: flex; align-items: center; gap: 8px;
+            padding: 12px 24px; border-radius: 12px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary); font-size: 14px; font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s var(--ease-out);
+        }
+
+        .cta-channel:hover {
+            border-color: var(--border-accent);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        /* ─── Footer ─── */
+        .footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-inner {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .footer-text { font-size: 13px; color: var(--text-muted); }
+        .footer-text a { color: var(--text-tertiary); text-decoration: none; }
+        .footer-text a:hover { color: var(--accent); }
+
+        .footer-location {
+            font-family: var(--font-mono); font-size: 12px; color: var(--text-muted);
+            display: flex; align-items: center; gap: 6px;
+        }
+
+        /* ─── Animations ─── */
+        .reveal {
+            opacity: 0; transform: translateY(40px);
+            transition: all 0.8s var(--ease-out);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* ─── Mobile Nav ─── */
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+        .nav-toggle span {
+            display: block; width: 24px; height: 2px; background: var(--text-primary);
+            margin: 5px 0; transition: all 0.3s;
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+            .process-grid::before { display: none; }
+            .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+            .case-card { grid-template-columns: 1fr; }
+            .case-visual { min-height: 240px; }
+        }
+
+        @media (max-width: 768px) {
+            :root { --section-gap: 100px; }
+            .container { padding: 0 24px; }
+            .nav-inner { padding: 0 24px; }
+            .nav-links { display: none; }
+            .nav-toggle { display: block; }
+            .services-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: 1fr; }
+            .case-metrics { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .case-metrics { grid-template-columns: 1fr; }
+            .hero-actions { flex-direction: column; align-items: center; }
+        }
+
+        /* ─── Case visual gradients ─── */
+        .case-gradient-1 {
+            background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 40%, #071420 100%);
+        }
+        .case-gradient-2 {
+            background: linear-gradient(135deg, #1a0a2e 0%, #16082a 40%, #0d0618 100%);
+        }
+        .case-gradient-3 {
+            background: linear-gradient(135deg, #0a1a1a 0%, #0d2828 40%, #071818 100%);
+        }
+        .case-gradient-4 {
+            background: linear-gradient(135deg, #1a1a0a 0%, #28280d 40%, #181807 100%);
+        }
+        .case-gradient-5 {
+            background: linear-gradient(135deg, #1a0a0a 0%, #280d0d 40%, #180707 100%);
+        }
+        .case-gradient-6 {
+            background: linear-gradient(135deg, #0a0a1a 0%, #14143c 40%, #0a0a28 100%);
+        }
+        .case-gradient-7 {
+            background: linear-gradient(135deg, #0a1a14 0%, #0d2820 40%, #07180f 100%);
+        }
+
+        /* ─── Floating orbs ─── */
+        .orb {
+            position: absolute; border-radius: 50%; filter: blur(80px);
+            pointer-events: none;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(30px, -30px); }
+            66% { transform: translate(-20px, 20px); }
+        }
+
+        /* ─── Ticker ─── */
+        .ticker {
+            overflow: hidden; padding: 16px 0;
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            background: var(--bg-secondary);
+        }
+
+        .ticker-track {
+            display: flex; gap: 32px; width: max-content;
+            animation: scroll-ticker 40s linear infinite;
+        }
+
+        .ticker-track:hover { animation-play-state: paused; }
+
+        .ticker-item {
+            font-family: var(--font-mono); font-size: 13px;
+            color: var(--text-muted); white-space: nowrap;
+            display: flex; align-items: center; gap: 8px;
+        }
+
+        .ticker-item .sep { color: var(--accent); opacity: 0.4; }
+
+        @keyframes scroll-ticker {
+            to { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="#" class="nav-logo">
+            <span class="dot"></span>
+            SwagaLabs
+        </a>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#stack">Tech Stack</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#why">Why Us</a></li>
+        </ul>
+        <a href="mailto:connect@swagalabs.com" class="nav-cta">Start a Project</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+    <div class="hero-bg">
+        <div class="hero-grid"></div>
+        <div class="orb" style="width: 600px; height: 600px; background: rgba(205,255,0,0.03); top: -200px; right: -100px;"></div>
+        <div class="orb" style="width: 400px; height: 400px; background: rgba(59,130,246,0.03); bottom: -100px; left: -100px; animation-delay: -7s;"></div>
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="pulse"></span>
+                Available for new projects — Q3 2026
+            </div>
+            <h1>
+                We Build<br>
+                <span class="accent">What Others</span><br>
+                <span class="thin">Can't.</span>
+            </h1>
+            <p class="hero-sub">
+                Full-cycle software development studio with deep expertise in
+                fintech, AI/ML, marketplaces, and enterprise SaaS.
+                From architecture to deployment — we ship products that scale.
+            </p>
+            <div class="hero-actions">
+                <a href="mailto:connect@swagalabs.com" class="btn-primary">
+                    Discuss Your Project
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="#portfolio" class="btn-outline">
+                    View Our Work
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Bar -->
+<div class="stats-bar">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item reveal">
+                <div class="stat-number"><span class="accent-num" data-count="14">0</span></div>
+                <div class="stat-label">Products Shipped</div>
+            </div>
+            <div class="stat-item reveal reveal-delay-1">
+                <div class="stat-number"><span class="accent-num" data-count="13">0</span></div>
+                <div class="stat-label">Team Members</div>
+            </div>
+            <div class="stat-item reveal reveal-delay-2">
+                <div class="stat-number"><span data-count="6">0</span>+</div>
+                <div class="stat-label">Tech Stacks</div>
+            </div>
+            <div class="stat-item reveal reveal-delay-3">
+                <div class="stat-number"><span data-count="30">0</span>+</div>
+                <div class="stat-label">API Integrations</div>
+            </div>
+            <div class="stat-item reveal reveal-delay-4">
+                <div class="stat-number">24<span class="accent-num">/7</span></div>
+                <div class="stat-label">Production Uptime</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Ticker -->
+<div class="ticker">
+    <div class="ticker-track">
+        <span class="ticker-item">Go <span class="sep">◆</span></span>
+        <span class="ticker-item">TypeScript <span class="sep">◆</span></span>
+        <span class="ticker-item">Python <span class="sep">◆</span></span>
+        <span class="ticker-item">Vue 3 <span class="sep">◆</span></span>
+        <span class="ticker-item">React <span class="sep">◆</span></span>
+        <span class="ticker-item">Next.js <span class="sep">◆</span></span>
+        <span class="ticker-item">NestJS <span class="sep">◆</span></span>
+        <span class="ticker-item">PostgreSQL <span class="sep">◆</span></span>
+        <span class="ticker-item">TimescaleDB <span class="sep">◆</span></span>
+        <span class="ticker-item">Redis <span class="sep">◆</span></span>
+        <span class="ticker-item">Docker <span class="sep">◆</span></span>
+        <span class="ticker-item">Supabase <span class="sep">◆</span></span>
+        <span class="ticker-item">Kotlin <span class="sep">◆</span></span>
+        <span class="ticker-item">OpenAI Whisper <span class="sep">◆</span></span>
+        <span class="ticker-item">Claude AI <span class="sep">◆</span></span>
+        <span class="ticker-item">FFmpeg <span class="sep">◆</span></span>
+        <span class="ticker-item">OpenCV <span class="sep">◆</span></span>
+        <span class="ticker-item">Telegram Bot API <span class="sep">◆</span></span>
+        <span class="ticker-item">WebSocket <span class="sep">◆</span></span>
+        <span class="ticker-item">GitHub Actions <span class="sep">◆</span></span>
+        <!-- Duplicate for seamless loop -->
+        <span class="ticker-item">Go <span class="sep">◆</span></span>
+        <span class="ticker-item">TypeScript <span class="sep">◆</span></span>
+        <span class="ticker-item">Python <span class="sep">◆</span></span>
+        <span class="ticker-item">Vue 3 <span class="sep">◆</span></span>
+        <span class="ticker-item">React <span class="sep">◆</span></span>
+        <span class="ticker-item">Next.js <span class="sep">◆</span></span>
+        <span class="ticker-item">NestJS <span class="sep">◆</span></span>
+        <span class="ticker-item">PostgreSQL <span class="sep">◆</span></span>
+        <span class="ticker-item">TimescaleDB <span class="sep">◆</span></span>
+        <span class="ticker-item">Redis <span class="sep">◆</span></span>
+        <span class="ticker-item">Docker <span class="sep">◆</span></span>
+        <span class="ticker-item">Supabase <span class="sep">◆</span></span>
+        <span class="ticker-item">Kotlin <span class="sep">◆</span></span>
+        <span class="ticker-item">OpenAI Whisper <span class="sep">◆</span></span>
+        <span class="ticker-item">Claude AI <span class="sep">◆</span></span>
+        <span class="ticker-item">FFmpeg <span class="sep">◆</span></span>
+        <span class="ticker-item">OpenCV <span class="sep">◆</span></span>
+        <span class="ticker-item">Telegram Bot API <span class="sep">◆</span></span>
+        <span class="ticker-item">WebSocket <span class="sep">◆</span></span>
+        <span class="ticker-item">GitHub Actions <span class="sep">◆</span></span>
+    </div>
+</div>
+
+<!-- Services -->
+<section class="section" id="services">
+    <div class="container">
+        <div class="section-label reveal">What We Do</div>
+        <h2 class="section-title reveal reveal-delay-1">End-to-End<br>Development</h2>
+        <p class="section-desc reveal reveal-delay-2">
+            We don't just write code — we architect, build, deploy, and scale
+            production systems across every layer of the stack.
+        </p>
+
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon" style="background: rgba(59,130,246,0.1); color: var(--blue);">
+                    <div style="font-size: 28px;">&#9672;</div>
+                </div>
+                <h3>Real-Time Systems & Fintech</h3>
+                <p>
+                    High-throughput data pipelines, real-time analytics engines,
+                    WebSocket streaming, custom protocol adapters. We build systems
+                    that process thousands of events per minute with sub-second latency.
+                </p>
+                <div class="service-tags">
+                    <span class="service-tag">Go</span>
+                    <span class="service-tag">TimescaleDB</span>
+                    <span class="service-tag">WebSocket</span>
+                    <span class="service-tag">Protobuf</span>
+                    <span class="service-tag">FlareSolverr</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-1">
+                <div class="service-icon" style="background: rgba(139,92,246,0.1); color: var(--purple);">
+                    <div style="font-size: 28px;">&#10047;</div>
+                </div>
+                <h3>AI/ML Products</h3>
+                <p>
+                    Production AI pipelines — from computer vision and NLP to generative AI.
+                    LLM-powered content automation, image restoration with neural networks,
+                    speech recognition, and intelligent content analysis.
+                </p>
+                <div class="service-tags">
+                    <span class="service-tag">Claude API</span>
+                    <span class="service-tag">OpenAI Whisper</span>
+                    <span class="service-tag">OpenCV</span>
+                    <span class="service-tag">Google Gemini</span>
+                    <span class="service-tag">FFmpeg</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-2">
+                <div class="service-icon" style="background: rgba(16,185,129,0.1); color: var(--emerald);">
+                    <div style="font-size: 28px;">&#9733;</div>
+                </div>
+                <h3>Marketplaces & Platforms</h3>
+                <p>
+                    Two-sided marketplaces with booking systems, reviews, geolocation,
+                    real-time availability, and payment integration. Search algorithms,
+                    recommendation engines, and admin dashboards included.
+                </p>
+                <div class="service-tags">
+                    <span class="service-tag">Vue 3</span>
+                    <span class="service-tag">NestJS</span>
+                    <span class="service-tag">PostgreSQL</span>
+                    <span class="service-tag">CI/CD</span>
+                    <span class="service-tag">Docker</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-3">
+                <div class="service-icon" style="background: rgba(249,115,22,0.1); color: var(--orange);">
+                    <div style="font-size: 28px;">&#9000;</div>
+                </div>
+                <h3>Telegram Apps & Chatbots</h3>
+                <p>
+                    Full-featured Telegram Mini Apps — CRM systems, booking engines,
+                    automated client communication, broadcast campaigns, analytics dashboards.
+                    Bot-driven workflows with multi-role access control.
+                </p>
+                <div class="service-tags">
+                    <span class="service-tag">Telegraf</span>
+                    <span class="service-tag">Vue 3</span>
+                    <span class="service-tag">Redis</span>
+                    <span class="service-tag">NestJS</span>
+                    <span class="service-tag">Webhooks</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-4">
+                <div class="service-icon" style="background: rgba(244,63,94,0.1); color: var(--rose);">
+                    <div style="font-size: 28px;">&#9881;</div>
+                </div>
+                <h3>SaaS & Multi-Tenant Systems</h3>
+                <p>
+                    Scalable multi-tenant architectures with per-tenant isolation,
+                    automated Docker deployments, credit-based billing,
+                    payment gateway integration, and append-only audit ledgers.
+                </p>
+                <div class="service-tags">
+                    <span class="service-tag">Next.js</span>
+                    <span class="service-tag">Supabase</span>
+                    <span class="service-tag">WayForPay</span>
+                    <span class="service-tag">Docker Compose</span>
+                    <span class="service-tag">RLS</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal reveal-delay-5">
+                <div class="service-icon" style="background: rgba(6,182,212,0.1); color: var(--cyan);">
+                    <div style="font-size: 28px;">&#9998;</div>
+                </div>
+                <h3>Developer Tools & Extensions</h3>
+                <p>
+                    VS Code extensions, visual no-code builders (Figma-like editors),
+                    internal dev tools, CI/CD pipelines. We build the tools
+                    that make other developers more productive.
+                </p>
+                <div class="service-tags">
+                    <span class="service-tag">VS Code API</span>
+                    <span class="service-tag">React</span>
+                    <span class="service-tag">Zustand</span>
+                    <span class="service-tag">Vite</span>
+                    <span class="service-tag">TypeScript</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio / Case Studies -->
+<section class="section" id="portfolio">
+    <div class="container">
+        <div class="section-label reveal">Our Work</div>
+        <h2 class="section-title reveal reveal-delay-1">Production-Grade<br>Case Studies</h2>
+        <p class="section-desc reveal reveal-delay-2">
+            Real products. Real users. Every project below is deployed
+            and running in production.
+        </p>
+
+        <div class="cases-grid">
+            <!-- Case 1: Arbitrage Engine -->
+            <div class="case-card reveal">
+                <div class="case-visual case-gradient-1">
+                    <div class="case-visual-inner">
+                        <div class="case-icon" style="color: var(--blue);">&#9672;</div>
+                        <div class="case-tech-visual">
+                            <span class="tech-pill">Go 1.24</span>
+                            <span class="tech-pill">TimescaleDB</span>
+                            <span class="tech-pill">WebSocket</span>
+                            <span class="tech-pill">Docker</span>
+                            <span class="tech-pill">Protobuf</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-content">
+                    <div class="case-category" style="color: var(--blue);">Fintech / Real-Time Analytics</div>
+                    <h3>Cross-Platform Real-Time Odds Engine</h3>
+                    <p>
+                        High-throughput Go engine that aggregates live data from 30+ sources
+                        across 3 regulated markets. Custom protocol adapters (REST, WebSocket,
+                        GraphQL, binary TLV, XOR ciphers), fuzzy multi-script matching,
+                        Cloudflare bypass infrastructure. Single binary, zero downtime deploys.
+                    </p>
+                    <div class="case-metrics">
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--blue);">30+</div>
+                            <div class="case-metric-label">Data Sources</div>
+                        </div>
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--blue);">24.5K</div>
+                            <div class="case-metric-label">Events / Min</div>
+                        </div>
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--blue);">v3.5</div>
+                            <div class="case-metric-label">Release</div>
+                        </div>
+                    </div>
+                    <div class="case-stack">
+                        <span class="case-stack-item">Go</span>
+                        <span class="case-stack-item">TimescaleDB</span>
+                        <span class="case-stack-item">FlareSolverr</span>
+                        <span class="case-stack-item">zerolog</span>
+                        <span class="case-stack-item">Docker Compose</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 2: AI Content Pipeline -->
+            <div class="case-card reveal">
+                <div class="case-visual case-gradient-2">
+                    <div class="case-visual-inner">
+                        <div class="case-icon" style="color: var(--purple);">&#10047;</div>
+                        <div class="case-tech-visual">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">FastAPI</span>
+                            <span class="tech-pill">Claude AI</span>
+                            <span class="tech-pill">Whisper</span>
+                            <span class="tech-pill">OpenCV</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-content">
+                    <div class="case-category" style="color: var(--purple);">AI / Content Automation</div>
+                    <h3>AI-Powered Short-Form Video Pipeline</h3>
+                    <p>
+                        End-to-end content factory: ingests long-form video, transcribes with
+                        local Whisper (CUDA-accelerated), uses LLM to identify viral moments,
+                        auto-crops to 9:16 with face-tracking, generates thumbnails via vision AI,
+                        and auto-publishes through n8n workflows.
+                    </p>
+                    <div class="case-metrics">
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--purple);">209</div>
+                            <div class="case-metric-label">Test Cases</div>
+                        </div>
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--purple);">4</div>
+                            <div class="case-metric-label">AI Models</div>
+                        </div>
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--purple);">0</div>
+                            <div class="case-metric-label">Manual Steps</div>
+                        </div>
+                    </div>
+                    <div class="case-stack">
+                        <span class="case-stack-item">Python / FastAPI</span>
+                        <span class="case-stack-item">Claude Sonnet</span>
+                        <span class="case-stack-item">Whisper</span>
+                        <span class="case-stack-item">OpenCV</span>
+                        <span class="case-stack-item">FFmpeg</span>
+                        <span class="case-stack-item">HTMX</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 3: AI Photo Restoration -->
+            <div class="case-card reveal">
+                <div class="case-visual case-gradient-5">
+                    <div class="case-visual-inner">
+                        <div class="case-icon" style="color: var(--rose);">&#10024;</div>
+                        <div class="case-tech-visual">
+                            <span class="tech-pill">Next.js 16</span>
+                            <span class="tech-pill">React 19</span>
+                            <span class="tech-pill">Supabase</span>
+                            <span class="tech-pill">Google Gemini</span>
+                            <span class="tech-pill">WayForPay</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-content">
+                    <div class="case-category" style="color: var(--rose);">AI SaaS / Image Processing</div>
+                    <h3>AI Photo Restoration & Colorization Platform</h3>
+                    <p>
+                        Production SaaS for restoring and colorizing old photographs using
+                        neural networks. Credit-based monetization with payment gateway integration.
+                        Append-only financial ledger, advisory locks, idempotent transactions,
+                        anti-abuse measures, and 15 SEO-optimized landing pages.
+                    </p>
+                    <div class="case-metrics">
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--rose);">Live</div>
+                            <div class="case-metric-label">In Production</div>
+                        </div>
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--rose);">15</div>
+                            <div class="case-metric-label">SEO Pages</div>
+                        </div>
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--rose);">RLS</div>
+                            <div class="case-metric-label">Row-Level Security</div>
+                        </div>
+                    </div>
+                    <div class="case-stack">
+                        <span class="case-stack-item">Next.js 16</span>
+                        <span class="case-stack-item">React 19</span>
+                        <span class="case-stack-item">Supabase</span>
+                        <span class="case-stack-item">Gemini AI</span>
+                        <span class="case-stack-item">WayForPay</span>
+                        <span class="case-stack-item">sharp</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 4: Beauty Marketplace -->
+            <div class="case-card reveal">
+                <div class="case-visual case-gradient-3">
+                    <div class="case-visual-inner">
+                        <div class="case-icon" style="color: var(--emerald);">&#9733;</div>
+                        <div class="case-tech-visual">
+                            <span class="tech-pill">Vue 3</span>
+                            <span class="tech-pill">TypeScript</span>
+                            <span class="tech-pill">NestJS</span>
+                            <span class="tech-pill">PostgreSQL</span>
+                            <span class="tech-pill">Docker</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-content">
+                    <div class="case-category" style="color: var(--emerald);">Marketplace / On-Demand Services</div>
+                    <h3>On-Demand Services Marketplace</h3>
+                    <p>
+                        Two-sided marketplace connecting service professionals with clients.
+                        Real-time booking, availability management, review system, geo-based search,
+                        recommendation algorithms, promotional tools.
+                        Full CI/CD pipeline with automated DB backups and failure alerting.
+                    </p>
+                    <div class="case-metrics">
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--emerald);">2</div>
+                            <div class="case-metric-label">User Roles</div>
+                        </div>
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--emerald);">CI/CD</div>
+                            <div class="case-metric-label">Full Pipeline</div>
+                        </div>
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--emerald);">Auto</div>
+                            <div class="case-metric-label">DB Backups</div>
+                        </div>
+                    </div>
+                    <div class="case-stack">
+                        <span class="case-stack-item">Vue 3</span>
+                        <span class="case-stack-item">TypeScript</span>
+                        <span class="case-stack-item">NestJS</span>
+                        <span class="case-stack-item">PostgreSQL</span>
+                        <span class="case-stack-item">GitHub Actions</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 5: Telegram CRM -->
+            <div class="case-card reveal">
+                <div class="case-visual case-gradient-4">
+                    <div class="case-visual-inner">
+                        <div class="case-icon" style="color: var(--orange);">&#9000;</div>
+                        <div class="case-tech-visual">
+                            <span class="tech-pill">NestJS</span>
+                            <span class="tech-pill">Vue 3</span>
+                            <span class="tech-pill">Telegraf</span>
+                            <span class="tech-pill">Redis</span>
+                            <span class="tech-pill">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-content">
+                    <div class="case-category" style="color: var(--orange);">Telegram / CRM & Automation</div>
+                    <h3>Telegram Mini App CRM System</h3>
+                    <p>
+                        Enterprise-grade CRM running entirely inside Telegram.
+                        Three access roles (Client, Professional, Admin), automated reminders,
+                        re-engagement campaigns, giveaway system, broadcast messaging,
+                        spending analytics with LTV tracking, backup/restore system.
+                    </p>
+                    <div class="case-metrics">
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--orange);">3</div>
+                            <div class="case-metric-label">User Roles</div>
+                        </div>
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--orange);">Auto</div>
+                            <div class="case-metric-label">Reminders</div>
+                        </div>
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--orange);">LTV</div>
+                            <div class="case-metric-label">Analytics</div>
+                        </div>
+                    </div>
+                    <div class="case-stack">
+                        <span class="case-stack-item">NestJS</span>
+                        <span class="case-stack-item">Vue 3 / Vite</span>
+                        <span class="case-stack-item">Telegraf</span>
+                        <span class="case-stack-item">Redis</span>
+                        <span class="case-stack-item">Tailwind CSS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 6: Visual Editor -->
+            <div class="case-card reveal">
+                <div class="case-visual case-gradient-6">
+                    <div class="case-visual-inner">
+                        <div class="case-icon" style="color: var(--blue);">&#9998;</div>
+                        <div class="case-tech-visual">
+                            <span class="tech-pill">React</span>
+                            <span class="tech-pill">Zustand</span>
+                            <span class="tech-pill">NestJS</span>
+                            <span class="tech-pill">Docker</span>
+                            <span class="tech-pill">Multi-Tenant</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-content">
+                    <div class="case-category" style="color: var(--blue);">DevTools / No-Code Builder</div>
+                    <h3>Visual Frontend Builder Platform</h3>
+                    <p>
+                        Figma-like no-code constructor for building web frontends.
+                        Drag-and-drop components, full CSS editor, theme presets,
+                        undo/redo, export to JSON or React code.
+                        Multi-tenant backend with per-tenant Docker isolation and database.
+                    </p>
+                    <div class="case-metrics">
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--blue);">D&D</div>
+                            <div class="case-metric-label">Drag & Drop</div>
+                        </div>
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--blue);">Multi</div>
+                            <div class="case-metric-label">Tenant Arch</div>
+                        </div>
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--blue);">React</div>
+                            <div class="case-metric-label">Code Export</div>
+                        </div>
+                    </div>
+                    <div class="case-stack">
+                        <span class="case-stack-item">React</span>
+                        <span class="case-stack-item">Zustand</span>
+                        <span class="case-stack-item">NestJS</span>
+                        <span class="case-stack-item">PostgreSQL</span>
+                        <span class="case-stack-item">Docker Compose</span>
+                        <span class="case-stack-item">nginx</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 7: VS Code Extension -->
+            <div class="case-card reveal">
+                <div class="case-visual case-gradient-7">
+                    <div class="case-visual-inner">
+                        <div class="case-icon" style="color: var(--emerald);">&#9881;</div>
+                        <div class="case-tech-visual">
+                            <span class="tech-pill">TypeScript</span>
+                            <span class="tech-pill">VS Code API</span>
+                            <span class="tech-pill">Webview</span>
+                            <span class="tech-pill">Google APIs</span>
+                            <span class="tech-pill">GitHub API</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-content">
+                    <div class="case-category" style="color: var(--emerald);">DevTools / IDE Extension</div>
+                    <h3>Unified Collaboration Suite for VS Code</h3>
+                    <p>
+                        VS Code extension integrating Google Chat, Meet, Calendar
+                        and GitHub Org/Repos/Projects into a unified sidebar.
+                        Cross-module navigation with alias system
+                        (@people, #channels, $repos, !projects, ~events).
+                    </p>
+                    <div class="case-metrics">
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--emerald);">6</div>
+                            <div class="case-metric-label">Panel Views</div>
+                        </div>
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--emerald);">5</div>
+                            <div class="case-metric-label">API Integrations</div>
+                        </div>
+                        <div class="case-metric">
+                            <div class="case-metric-value" style="color: var(--emerald);">SVG</div>
+                            <div class="case-metric-label">Doc Diagrams</div>
+                        </div>
+                    </div>
+                    <div class="case-stack">
+                        <span class="case-stack-item">TypeScript</span>
+                        <span class="case-stack-item">VS Code Extension API</span>
+                        <span class="case-stack-item">Webview Panels</span>
+                        <span class="case-stack-item">Google APIs</span>
+                        <span class="case-stack-item">GitHub API</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tech Stack -->
+<section class="section tech-section" id="stack">
+    <div class="container">
+        <div class="section-label reveal">Our Arsenal</div>
+        <h2 class="section-title reveal reveal-delay-1">Battle-Tested<br>Tech Stack</h2>
+        <p class="section-desc reveal reveal-delay-2">
+            We choose tools by the problem, not by the hype. Every technology
+            here is proven in our production systems.
+        </p>
+
+        <div class="tech-categories">
+            <div class="tech-category reveal">
+                <h3>Backend & Systems</h3>
+                <div class="tech-items">
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#9881;</span>
+                        <span class="tech-item-name">Go</span>
+                        <span class="tech-item-exp">v1.24</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#9733;</span>
+                        <span class="tech-item-name">NestJS</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#10047;</span>
+                        <span class="tech-item-name">FastAPI</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#9672;</span>
+                        <span class="tech-item-name">Python</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#10070;</span>
+                        <span class="tech-item-name">Kotlin</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#9998;</span>
+                        <span class="tech-item-name">Node.js</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-category reveal">
+                <h3>Frontend & Mobile</h3>
+                <div class="tech-items">
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#9670;</span>
+                        <span class="tech-item-name">Vue 3</span>
+                        <span class="tech-item-exp">Composition API</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#9672;</span>
+                        <span class="tech-item-name">React</span>
+                        <span class="tech-item-exp">v19</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#10070;</span>
+                        <span class="tech-item-name">Next.js</span>
+                        <span class="tech-item-exp">v16</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#9733;</span>
+                        <span class="tech-item-name">TypeScript</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#10047;</span>
+                        <span class="tech-item-name">Tailwind CSS</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#9998;</span>
+                        <span class="tech-item-name">HTMX + Alpine.js</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#10024;</span>
+                        <span class="tech-item-name">Kotlin / Android</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-category reveal">
+                <h3>Data & Infrastructure</h3>
+                <div class="tech-items">
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#9672;</span>
+                        <span class="tech-item-name">PostgreSQL</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#10070;</span>
+                        <span class="tech-item-name">TimescaleDB</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#10047;</span>
+                        <span class="tech-item-name">Redis</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#9733;</span>
+                        <span class="tech-item-name">Supabase</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#9881;</span>
+                        <span class="tech-item-name">SQLite</span>
+                        <span class="tech-item-exp">WAL mode</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#9998;</span>
+                        <span class="tech-item-name">Docker</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#10024;</span>
+                        <span class="tech-item-name">GitHub Actions</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#9670;</span>
+                        <span class="tech-item-name">nginx</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-category reveal">
+                <h3>AI / ML</h3>
+                <div class="tech-items">
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#10047;</span>
+                        <span class="tech-item-name">Claude API</span>
+                        <span class="tech-item-exp">Sonnet / Opus</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#9733;</span>
+                        <span class="tech-item-name">OpenAI Whisper</span>
+                        <span class="tech-item-exp">Local / CUDA</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#9672;</span>
+                        <span class="tech-item-name">Google Gemini</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#10070;</span>
+                        <span class="tech-item-name">OpenCV</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#9881;</span>
+                        <span class="tech-item-name">FFmpeg</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-item-icon">&#9998;</span>
+                        <span class="tech-item-name">sharp</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process -->
+<section class="section" id="process">
+    <div class="container">
+        <div class="section-label reveal">How We Work</div>
+        <h2 class="section-title reveal reveal-delay-1">From Idea to<br>Production in Weeks</h2>
+        <p class="section-desc reveal reveal-delay-2">
+            We move fast without breaking things. Our AI-augmented workflow
+            delivers production-grade code at startup speed.
+        </p>
+
+        <div class="process-grid">
+            <div class="process-step reveal">
+                <div class="process-step-num">01</div>
+                <h3>Discovery</h3>
+                <p>We analyze your business needs, define the architecture,
+                   select the optimal tech stack, and create a detailed roadmap with milestones.</p>
+            </div>
+            <div class="process-step reveal reveal-delay-1">
+                <div class="process-step-num">02</div>
+                <h3>Build</h3>
+                <p>AI-augmented development with rigorous code review.
+                   We ship working increments every week with full test coverage and CI/CD from day one.</p>
+            </div>
+            <div class="process-step reveal reveal-delay-2">
+                <div class="process-step-num">03</div>
+                <h3>Deploy</h3>
+                <p>Docker-containerized, zero-downtime deployments. Automated backups,
+                   health monitoring, failure alerts. Your app is always running.</p>
+            </div>
+            <div class="process-step reveal reveal-delay-3">
+                <div class="process-step-num">04</div>
+                <h3>Scale</h3>
+                <p>Post-launch optimization, performance tuning, feature iteration.
+                   We stay with you as your product grows from MVP to market leader.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Us -->
+<section class="section" id="why">
+    <div class="container">
+        <div class="section-label reveal">Why SwagaLabs</div>
+        <h2 class="section-title reveal reveal-delay-1">The Unfair<br>Advantages</h2>
+        <p class="section-desc reveal reveal-delay-2">
+            We're not another outsourcing shop. Here's what makes
+            working with us different.
+        </p>
+
+        <div class="why-grid">
+            <div class="why-card reveal">
+                <div class="why-card-icon">&#9889;</div>
+                <h3>AI-Augmented Velocity</h3>
+                <p>
+                    We leverage AI throughout our development workflow — not as a gimmick,
+                    but as a core multiplier. Our internal tooling, prompt libraries,
+                    and automated pipelines let a 13-person team ship like a 50-person org.
+                    14 products deployed in under 6 weeks. That's our pace.
+                </p>
+            </div>
+            <div class="why-card reveal reveal-delay-1">
+                <div class="why-card-icon">&#9878;</div>
+                <h3>True Full-Stack Ownership</h3>
+                <p>
+                    Go, Python, TypeScript, Kotlin — we don't outsource parts of your stack.
+                    From binary protocol decoders to pixel-perfect Vue frontends to
+                    multi-tenant Docker orchestration, one team owns it all. Zero handoff friction.
+                </p>
+            </div>
+            <div class="why-card reveal reveal-delay-2">
+                <div class="why-card-icon">&#9881;</div>
+                <h3>Production-First Mindset</h3>
+                <p>
+                    Every project gets CI/CD, automated backups, monitoring, and
+                    zero-downtime deploys from sprint one. We don't build demos —
+                    we build systems with append-only ledgers, advisory locks,
+                    Row-Level Security, and anti-abuse measures built in.
+                </p>
+            </div>
+            <div class="why-card reveal reveal-delay-3">
+                <div class="why-card-icon">&#9733;</div>
+                <h3>We Build Our Own Products</h3>
+                <p>
+                    We're not just contractors — we run our own SaaS products, marketplaces,
+                    and fintech systems. We know what it takes to ship, scale, and monetize
+                    because we do it ourselves. Your product gets the same rigor we apply to ours.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quote -->
+<div class="quote-section">
+    <div class="container">
+        <div class="reveal">
+            <p class="quote-text">
+                "We don't follow trends. We decode them. Every pixel tells a story.
+                Every line of code is a statement. We build for the restless,
+                the curious, the ones who ship at midnight."
+            </p>
+            <p class="quote-author">
+                <strong>SwagaLabs Manifesto</strong> — Vilnius, 2026
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+    <div class="container">
+        <div class="cta-content">
+            <div class="section-label reveal" style="justify-content: center;">Let's Build</div>
+            <h2 class="reveal reveal-delay-1">
+                Ready to Ship<br>
+                <span style="color: var(--accent);">Something Real?</span>
+            </h2>
+            <p class="reveal reveal-delay-2">
+                Tell us about your project. We'll get back to you
+                within 24 hours with a technical assessment and roadmap.
+            </p>
+            <a href="mailto:connect@swagalabs.com" class="cta-email reveal reveal-delay-3">
+                connect@swagalabs.com
+            </a>
+            <div class="hero-actions reveal reveal-delay-3" style="margin-bottom: 32px;">
+                <a href="mailto:connect@swagalabs.com" class="btn-primary">
+                    Start a Conversation
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="https://github.com/swagalabs" class="btn-outline" target="_blank" rel="noopener">
+                    View GitHub
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3h7v7M13 3L3 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+            <div class="cta-channels reveal reveal-delay-4">
+                <a href="https://github.com/swagalabs" class="cta-channel" target="_blank" rel="noopener">
+                    <span>GitHub</span>
+                </a>
+                <a href="mailto:connect@swagalabs.com" class="cta-channel">
+                    <span>Email</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-text">
+                &copy; 2026 <a href="#">SwagaLabs</a>. All rights reserved.
+            </div>
+            <div class="footer-location">
+                <span>Vilnius, Lithuania</span>
+                <span style="color: var(--accent);">&#9679;</span>
+                <span>Remote-First</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function() {
+    'use strict';
+
+    // ── Scroll Progress ──
+    var progressBar = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', function() {
+        var scrolled = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+        progressBar.style.transform = 'scaleX(' + Math.min(scrolled, 1) + ')';
+    }, { passive: true });
+
+    // ── Nav scroll effect ──
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() {
+        nav.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    // ── Mobile nav toggle ──
+    var toggle = document.getElementById('navToggle');
+    var links = document.querySelector('.nav-links');
+    if (toggle) {
+        toggle.addEventListener('click', function() {
+            var isOpen = links.style.display === 'flex';
+            links.style.display = isOpen ? 'none' : 'flex';
+            links.style.position = 'absolute';
+            links.style.top = '100%';
+            links.style.left = '0';
+            links.style.right = '0';
+            links.style.flexDirection = 'column';
+            links.style.background = 'rgba(3,3,4,0.95)';
+            links.style.padding = '24px';
+            links.style.gap = '16px';
+            links.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
+        });
+    }
+
+    // ── Reveal on scroll ──
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(function(el) { observer.observe(el); });
+
+    // ── Counter animation ──
+    var counters = document.querySelectorAll('[data-count]');
+    var counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                var el = entry.target;
+                var target = parseInt(el.getAttribute('data-count'));
+                var duration = 2000;
+                var start = performance.now();
+
+                function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+
+                function update(now) {
+                    var progress = Math.min((now - start) / duration, 1);
+                    el.textContent = Math.round(easeOutQuart(progress) * target);
+                    if (progress < 1) requestAnimationFrame(update);
+                }
+
+                requestAnimationFrame(update);
+                counterObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(function(el) { counterObserver.observe(el); });
+
+    // ── Smooth scroll for nav links ──
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Close mobile nav
+                if (window.innerWidth <= 768) {
+                    links.style.display = 'none';
+                }
+            }
+        });
+    });
+
+})();
+</script>
+
+</body>
+</html>
